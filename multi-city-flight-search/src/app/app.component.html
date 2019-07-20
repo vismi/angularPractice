@@ -8,7 +8,7 @@
         <div class="col-md-12">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="origin" placeholder="Origin" class="form-control" type="input" required="Required" [(ngModel)]="data.origin">
+            <input name="origin" placeholder="Origin" class="form-control" type="input" required="Required" [(ngModel)]="data.originLocationCode">
           </div>
         </div>
       </div>
@@ -16,7 +16,7 @@
         <div class="col-md-12">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input name="destination" placeholder="Destination" class="form-control" type="input" required="Required" [(ngModel)]="data.destination">
+            <input name="destination" placeholder="Destination" class="form-control" type="input" required="Required" [(ngModel)]="data.destinationLocationCode">
           </div>
         </div>
       </div>
@@ -24,7 +24,7 @@
         <div class="col-md-12">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input name="date" placeholder="Date" class="form-control" type="Date" required="Required" [(ngModel)]="data.date">
+            <input name="date" placeholder="Date" class="form-control" type="Date" required="Required" [(ngModel)]="data.departureDate">
           </div>
         </div>
       </div>
@@ -35,4 +35,13 @@
       </div>
     </fieldset>
   </form>
+
+ <div>
+    <ul  *ngFor ="let flight of flightList">
+      <li>{{flight.localFlightSegments[0].departureAirport.name | json}}</li>
+      <li>{{flight.localFlightSegments[0].arrivalAirport.name | json}}</li>
+      <li>{{flight.localFlightSegments[0].departureDateTime | json}}</li>
+  </ul>
+  </div>
+
 </div> 
