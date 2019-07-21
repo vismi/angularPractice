@@ -1,0 +1,191 @@
+//http://caws08-pint01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=3;applicableoffers=55,56,91
+
+
+[
+    {
+        "localFlightSegments": [
+            {
+                "departureAirport": {
+                    "code": "BKK",
+                    "name": "BANGKOK",
+                    "terminal": "",
+                    "date": "2019-08-25",
+                    "time": "09:25:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "SIN",
+                    "name": "CHANGI",
+                    "terminal": "1",
+                    "date": "2019-08-25",
+                    "time": "12:50:00.000"
+                },
+                "departureDateTime": "2019-08-25T09:25:11.672",
+                "arrivalDateTime": "2019-08-25T12:50:11.672",
+                "operatingCarrier": {
+                    "carrierCode": "3K",
+                    "carrierName": "Jetstar Asia"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "3K",
+                    "carrierName": "Jetstar Asia",
+                    "flightNumber": "0512"
+                },
+                "duration": "PT2H25M"
+            }
+        ],
+        "availableCabinsForOption": [
+            {
+                "lowestJourneyPriceInCabin": {
+                    "amount": 5506.23,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "lowestSegmentPriceInCabin": {
+                    "amount": 0,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "offerIdsForCabinOffer": [
+                    55
+                ],
+                "nextFlightSegment": {},
+                "cabinOptionKey": "M"
+            }
+        ],
+        "taxInclusive": true
+    },
+    {
+        "localFlightSegments": [
+            {
+                "departureAirport": {
+                    "code": "BKK",
+                    "name": "BANGKOK",
+                    "terminal": "",
+                    "date": "2019-08-25",
+                    "time": "21:20:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "SIN",
+                    "name": "CHANGI",
+                    "terminal": "1",
+                    "date": "2019-08-26",
+                    "time": "00:45:00.000"
+                },
+                "departureDateTime": "2019-08-25T21:20:11.672",
+                "arrivalDateTime": "2019-08-26T00:45:11.672",
+                "operatingCarrier": {
+                    "carrierCode": "3K",
+                    "carrierName": "Jetstar Asia"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "3K",
+                    "carrierName": "Jetstar Asia",
+                    "flightNumber": "0514"
+                },
+                "duration": "PT2H25M"
+            }
+        ],
+        "availableCabinsForOption": [
+            {
+                "lowestJourneyPriceInCabin": {
+                    "amount": 5506.23,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "lowestSegmentPriceInCabin": {
+                    "amount": 0,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "offerIdsForCabinOffer": [
+                    56
+                ],
+                "nextFlightSegment": {},
+                "cabinOptionKey": "M"
+            }
+        ],
+        "taxInclusive": true
+    },
+    {
+        "localFlightSegments": [
+            {
+                "departureAirport": {
+                    "code": "BKK",
+                    "name": "BANGKOK",
+                    "terminal": "",
+                    "date": "2019-08-25",
+                    "time": "12:50:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "SIN",
+                    "name": "CHANGI",
+                    "terminal": "1",
+                    "date": "2019-08-25",
+                    "time": "16:15:00.000"
+                },
+                "departureDateTime": "2019-08-25T12:50:11.672",
+                "arrivalDateTime": "2019-08-25T16:15:11.672",
+                "operatingCarrier": {
+                    "carrierCode": "3K",
+                    "carrierName": "Jetstar Asia"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "3K",
+                    "carrierName": "Jetstar Asia",
+                    "flightNumber": "0516"
+                },
+                "duration": "PT2H25M"
+            }
+        ],
+        "availableCabinsForOption": [
+            {
+                "lowestJourneyPriceInCabin": {
+                    "amount": 5506.23,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "lowestSegmentPriceInCabin": {
+                    "amount": 0,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "offerIdsForCabinOffer": [
+                    91
+                ],
+                "nextFlightSegment": {},
+                "cabinOptionKey": "M"
+            }
+        ],
+        "taxInclusive": true
+    }
+]

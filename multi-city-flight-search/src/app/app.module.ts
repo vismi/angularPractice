@@ -6,12 +6,14 @@ import { FormsModule } from '@angular/forms';
 import bootstrap from "bootstrap";
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { FlightListComponent } from './flight-list/flight-list.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FlightListComponent
   ],
   imports: [
     BrowserModule,

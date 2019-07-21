@@ -11,41 +11,55 @@
     </ul>
   </div>
   <div class="card-body">
+
    <form class="form-horizontal" action=" " method="" id="contact_form">
     <fieldset>
-      <div class="form-group row">
-        <div class="col-md-4">
-          <div class="input-group-lg">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="origin" placeholder="Origin" class="form-control" type="input" required="Required" [(ngModel)]="data.originLocationCode">
-          </div>
-        </div>
 
-         <div class="col-md-4">
-          <div class="input-group-lg">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input name="destination" placeholder="Destination" class="form-control" type="input" required="Required" [(ngModel)]="data.destinationLocationCode">
-          </div>
-        </div>
+      <div *ngFor="let item of journeyMatrix; let segmentIndex = index">
 
-        <div class="col-md-4">
-          <div class="input-group-lg">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input name="date" placeholder="Date" class="form-control" type="Date" required="Required" [(ngModel)]="data.departureDate">
+        <div class="form-group row">
+          <div class="col-md-4">
+            <div class="input-group-lg">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input name="origin{{segmentIndex}}" placeholder="Origin" class="form-control" type="input" required="Required" [(ngModel)]="item.origin">
+            </div>
+          </div>
+
+           <div class="col-md-4">
+            <div class="input-group-lg">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <input name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" required="Required" [(ngModel)]="item.destination">
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="input-group-lg">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <input name="date{{segmentIndex}}" placeholder="Date" class="form-control" type="Date" required="Required" [(ngModel)]="item.date">
+            </div>
           </div>
         </div>
       </div>
+
+
       <div class="form-group-lg">
-        <div class="col-md-12">
+        <div class="col-md-12 row">
+          <button class="btn btn-danger btn-lg" (click)="addSegment()">Add a Segment</button>
           <button type="submit" class="btn btn-danger btn-lg" (click)=getdata(data)>Search</button>
         </div>
       </div>
+
     </fieldset>
   </form>
   </div>
 </div>
 </div>
-
+<app-flight-list *ngFor="let segment of journeyData; let segmentIndex = index"
+  [journeyData]="journeyData"
+  [segment]="segment"
+  [segmentIndex]="segmentIndex"
+  [ondSearchPayload]="ondSearchPayload">
+</app-flight-list>
 
 
 <!--  <div>

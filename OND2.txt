@@ -1,0 +1,589 @@
+//http://caws08-pint01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=2;applicableoffers=1,2,13,14,25,31,37,38,49,55,56,67,68,79,80,91,97,103
+
+
+
+
+[
+    {
+        "localFlightSegments": [
+            {
+                "departureAirport": {
+                    "code": "JFK",
+                    "name": "JOHN F KENNEDY",
+                    "terminal": "8",
+                    "date": "2019-08-20",
+                    "time": "22:45:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "LHR",
+                    "name": "HEATHROW",
+                    "terminal": "3",
+                    "date": "2019-08-21",
+                    "time": "10:50:00.000"
+                },
+                "departureDateTime": "2019-08-20T22:45:59.194",
+                "arrivalDateTime": "2019-08-21T10:50:59.194",
+                "operatingCarrier": {
+                    "carrierCode": "AA",
+                    "carrierName": "American Airlines"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "1515"
+                },
+                "duration": "PT7H5M"
+            },
+            {
+                "departureAirport": {
+                    "code": "LHR",
+                    "name": "HEATHROW",
+                    "terminal": "5",
+                    "date": "2019-08-21",
+                    "time": "16:10:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "BKK",
+                    "name": "BANGKOK",
+                    "terminal": "",
+                    "date": "2019-08-22",
+                    "time": "09:45:00.000"
+                },
+                "departureDateTime": "2019-08-21T16:10:59.194",
+                "arrivalDateTime": "2019-08-22T09:45:59.194",
+                "operatingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "0009"
+                },
+                "duration": "PT11H35M"
+            }
+        ],
+        "availableCabinsForOption": [
+            {
+                "lowestJourneyPriceInCabin": {
+                    "amount": 5354.73,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "lowestSegmentPriceInCabin": {
+                    "amount": 0,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "offerIdsForCabinOffer": [
+                    1,
+                    2,
+                    25
+                ],
+                "nextFlightSegment": {
+                    "link": {
+                        "href": "http://caws08-pint01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=3;applicableoffers=1,2,25",
+                        "rel": "nextSegment"
+                    }
+                },
+                "cabinOptionKey": ""
+            }
+        ],
+        "taxInclusive": true
+    },
+    {
+        "localFlightSegments": [
+            {
+                "departureAirport": {
+                    "code": "JFK",
+                    "name": "JOHN F KENNEDY",
+                    "terminal": "7",
+                    "date": "2019-08-20",
+                    "time": "21:30:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "LHR",
+                    "name": "HEATHROW",
+                    "terminal": "5",
+                    "date": "2019-08-21",
+                    "time": "09:35:00.000"
+                },
+                "departureDateTime": "2019-08-20T21:30:59.195",
+                "arrivalDateTime": "2019-08-21T09:35:59.195",
+                "operatingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "0114"
+                },
+                "duration": "PT7H5M"
+            },
+            {
+                "departureAirport": {
+                    "code": "LHR",
+                    "name": "HEATHROW",
+                    "terminal": "5",
+                    "date": "2019-08-21",
+                    "time": "16:10:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "BKK",
+                    "name": "BANGKOK",
+                    "terminal": "",
+                    "date": "2019-08-22",
+                    "time": "09:45:00.000"
+                },
+                "departureDateTime": "2019-08-21T16:10:59.195",
+                "arrivalDateTime": "2019-08-22T09:45:59.195",
+                "operatingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "0009"
+                },
+                "duration": "PT11H35M"
+            }
+        ],
+        "availableCabinsForOption": [
+            {
+                "lowestJourneyPriceInCabin": {
+                    "amount": 5354.73,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "lowestSegmentPriceInCabin": {
+                    "amount": 0,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "offerIdsForCabinOffer": [
+                    13,
+                    14,
+                    31
+                ],
+                "nextFlightSegment": {
+                    "link": {
+                        "href": "http://caws08-pint01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=3;applicableoffers=13,14,31",
+                        "rel": "nextSegment"
+                    }
+                },
+                "cabinOptionKey": ""
+            }
+        ],
+        "taxInclusive": true
+    },
+    {
+        "localFlightSegments": [
+            {
+                "departureAirport": {
+                    "code": "JFK",
+                    "name": "JOHN F KENNEDY",
+                    "terminal": "7",
+                    "date": "2019-08-20",
+                    "time": "22:00:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "LGW",
+                    "name": "GATWICK",
+                    "terminal": "S",
+                    "date": "2019-08-21",
+                    "time": "10:00:00.000"
+                },
+                "departureDateTime": "2019-08-20T22:00:59.195",
+                "arrivalDateTime": "2019-08-21T10:00:59.195",
+                "operatingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "2272"
+                },
+                "duration": "PT7H"
+            },
+            {
+                "departureAirport": {
+                    "code": "LHR",
+                    "name": "HEATHROW",
+                    "terminal": "5",
+                    "date": "2019-08-21",
+                    "time": "16:10:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "BKK",
+                    "name": "BANGKOK",
+                    "terminal": "",
+                    "date": "2019-08-22",
+                    "time": "09:45:00.000"
+                },
+                "departureDateTime": "2019-08-21T16:10:59.195",
+                "arrivalDateTime": "2019-08-22T09:45:59.195",
+                "operatingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "0009"
+                },
+                "duration": "PT11H35M"
+            }
+        ],
+        "availableCabinsForOption": [
+            {
+                "lowestJourneyPriceInCabin": {
+                    "amount": 5359.14,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "lowestSegmentPriceInCabin": {
+                    "amount": 0,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "offerIdsForCabinOffer": [
+                    37,
+                    38,
+                    49
+                ],
+                "nextFlightSegment": {
+                    "link": {
+                        "href": "http://caws08-pint01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=3;applicableoffers=37,38,49",
+                        "rel": "nextSegment"
+                    }
+                },
+                "cabinOptionKey": ""
+            }
+        ],
+        "taxInclusive": true
+    },
+    {
+        "localFlightSegments": [
+            {
+                "departureAirport": {
+                    "code": "JFK",
+                    "name": "JOHN F KENNEDY",
+                    "terminal": "7",
+                    "date": "2019-08-20",
+                    "time": "23:00:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "LHR",
+                    "name": "HEATHROW",
+                    "terminal": "5",
+                    "date": "2019-08-21",
+                    "time": "11:05:00.000"
+                },
+                "departureDateTime": "2019-08-20T23:00:59.195",
+                "arrivalDateTime": "2019-08-21T11:05:59.195",
+                "operatingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "0182"
+                },
+                "duration": "PT7H5M"
+            },
+            {
+                "departureAirport": {
+                    "code": "LHR",
+                    "name": "HEATHROW",
+                    "terminal": "5",
+                    "date": "2019-08-21",
+                    "time": "16:10:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "BKK",
+                    "name": "BANGKOK",
+                    "terminal": "",
+                    "date": "2019-08-22",
+                    "time": "09:45:00.000"
+                },
+                "departureDateTime": "2019-08-21T16:10:59.195",
+                "arrivalDateTime": "2019-08-22T09:45:59.195",
+                "operatingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "0009"
+                },
+                "duration": "PT11H35M"
+            }
+        ],
+        "availableCabinsForOption": [
+            {
+                "lowestJourneyPriceInCabin": {
+                    "amount": 5506.23,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "lowestSegmentPriceInCabin": {
+                    "amount": 0,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "offerIdsForCabinOffer": [
+                    55,
+                    56,
+                    91
+                ],
+                "nextFlightSegment": {
+                    "link": {
+                        "href": "http://caws08-pint01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=3;applicableoffers=55,56,91",
+                        "rel": "nextSegment"
+                    }
+                },
+                "cabinOptionKey": ""
+            }
+        ],
+        "taxInclusive": true
+    },
+    {
+        "localFlightSegments": [
+            {
+                "departureAirport": {
+                    "code": "EWR",
+                    "name": "NEWARK",
+                    "terminal": "B",
+                    "date": "2019-08-20",
+                    "time": "21:35:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "LHR",
+                    "name": "HEATHROW",
+                    "terminal": "5",
+                    "date": "2019-08-21",
+                    "time": "09:35:00.000"
+                },
+                "departureDateTime": "2019-08-20T21:35:59.195",
+                "arrivalDateTime": "2019-08-21T09:35:59.195",
+                "operatingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "0188"
+                },
+                "duration": "PT7H"
+            },
+            {
+                "departureAirport": {
+                    "code": "LHR",
+                    "name": "HEATHROW",
+                    "terminal": "5",
+                    "date": "2019-08-21",
+                    "time": "16:10:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "BKK",
+                    "name": "BANGKOK",
+                    "terminal": "",
+                    "date": "2019-08-22",
+                    "time": "09:45:00.000"
+                },
+                "departureDateTime": "2019-08-21T16:10:59.195",
+                "arrivalDateTime": "2019-08-22T09:45:59.195",
+                "operatingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "0009"
+                },
+                "duration": "PT11H35M"
+            }
+        ],
+        "availableCabinsForOption": [
+            {
+                "lowestJourneyPriceInCabin": {
+                    "amount": 5506.23,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "lowestSegmentPriceInCabin": {
+                    "amount": 0,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "offerIdsForCabinOffer": [
+                    67,
+                    68,
+                    97
+                ],
+                "nextFlightSegment": {
+                    "link": {
+                        "href": "http://caws08-pint01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=3;applicableoffers=67,68,97",
+                        "rel": "nextSegment"
+                    }
+                },
+                "cabinOptionKey": ""
+            }
+        ],
+        "taxInclusive": true
+    },
+    {
+        "localFlightSegments": [
+            {
+                "departureAirport": {
+                    "code": "JFK",
+                    "name": "JOHN F KENNEDY",
+                    "terminal": "7",
+                    "date": "2019-08-20",
+                    "time": "21:00:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "LHR",
+                    "name": "HEATHROW",
+                    "terminal": "5",
+                    "date": "2019-08-21",
+                    "time": "09:05:00.000"
+                },
+                "departureDateTime": "2019-08-20T21:00:59.195",
+                "arrivalDateTime": "2019-08-21T09:05:59.195",
+                "operatingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "0172"
+                },
+                "duration": "PT7H5M"
+            },
+            {
+                "departureAirport": {
+                    "code": "LHR",
+                    "name": "HEATHROW",
+                    "terminal": "5",
+                    "date": "2019-08-21",
+                    "time": "16:10:00.000"
+                },
+                "arrivalAirport": {
+                    "code": "BKK",
+                    "name": "BANGKOK",
+                    "terminal": "",
+                    "date": "2019-08-22",
+                    "time": "09:45:00.000"
+                },
+                "departureDateTime": "2019-08-21T16:10:59.195",
+                "arrivalDateTime": "2019-08-22T09:45:59.195",
+                "operatingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways"
+                },
+                "marketingCarrier": {
+                    "carrierCode": "BA",
+                    "carrierName": "British Airways",
+                    "flightNumber": "0009"
+                },
+                "duration": "PT11H35M"
+            }
+        ],
+        "availableCabinsForOption": [
+            {
+                "lowestJourneyPriceInCabin": {
+                    "amount": 5506.23,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "lowestSegmentPriceInCabin": {
+                    "amount": 0,
+                    "currency": {
+                        "displayFractionalPlaces": 0,
+                        "code": "GBP",
+                        "decimalPlaces": 0,
+                        "currencyCode": "GBP",
+                        "currencyDecimalPlaces": 0
+                    }
+                },
+                "offerIdsForCabinOffer": [
+                    79,
+                    80,
+                    103
+                ],
+                "nextFlightSegment": {
+                    "link": {
+                        "href": "http://caws08-pint01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=3;applicableoffers=79,80,103",
+                        "rel": "nextSegment"
+                    }
+                },
+                "cabinOptionKey": ""
+            }
+        ],
+        "taxInclusive": true
+    }
+]

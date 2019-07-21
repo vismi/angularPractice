@@ -10,8 +10,7 @@ res.json({message:'deleted'})
 });
 
 router.post('/badotcomadapter-paa/rs/v1/test;ondwanted=:ondwanted;applicableoffers=:applicableOffers', function(req, res) {
-
-if(req.params.ondwanted==1 && req.params.applicableOffers == null){
+if(req.params.ondwanted==1){
   res.json([
     {
         "localFlightSegments": [
@@ -1566,7 +1565,7 @@ if(req.params.ondwanted==1 && req.params.applicableOffers == null){
         "taxInclusive": true
     }
 ]);
-}else if(req.params.ondwanted==2 && req.params.applicableOffers == '1,2,13,14,25,31,37,38,49,55,56,67,68,79,80,91,97,103'){
+}else if(req.params.ondwanted==2 && req.params.applicableOffers == '1,2,3,5,8,9,78,80,82,83,84,85,86,88,91,92,93,94,98,99,100,101,102,103,106,108,109,110,111,112,115,117,118,119,120,121,124,126,127,128,129,130,134,135,136,137,138,139,141,143'){
   res.json([
     {
         "localFlightSegments": [
