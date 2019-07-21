@@ -2150,7 +2150,7 @@ if(req.params.ondwanted==1){
         "taxInclusive": true
     }
 ]);
-}else if(req.params.ondwanted==3 && req.params.applicableOffers == '55,56,91'){
+}else if(req.params.ondwanted==3 && req.params.applicableOffers == '1,2,25'){
   res.json([
     {
         "localFlightSegments": [

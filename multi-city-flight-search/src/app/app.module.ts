@@ -6,6 +6,13 @@ import { FormsModule } from '@angular/forms';
 import bootstrap from "bootstrap";
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatExpansionModule,
+  MatButtonModule
+} from '@angular/material';
+
+
 import { FlightListComponent } from './flight-list/flight-list.component';
 
 
@@ -17,7 +24,10 @@ import { FlightListComponent } from './flight-list/flight-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule , FormsModule , HttpModule , HttpClientModule
+    AppRoutingModule , FormsModule , HttpModule , HttpClientModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,6 +13,7 @@ export class FlightListComponent implements OnInit {
   @Input() segmentIndex: any;
   @Input() journeyData: any;
   @Input() ondSearchPayload: any;
+  @Input() segmentFlightSelectedFor: any;
 
   constructor(private appService:AppService) { }
 
@@ -25,8 +26,8 @@ export class FlightListComponent implements OnInit {
      this.appService.getSearchDataForNextSegment(href,this.ondSearchPayload)
     .subscribe((response)=>{
       if(response!='No Offers'){
+        this.segmentFlightSelectedFor++;
         this.journeyData.push({segmentData : response});
-        console.log('responsee',this.journeyData)
       }
      });
   }

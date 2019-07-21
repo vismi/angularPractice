@@ -1,5 +1,6 @@
 import { Component , OnInit } from '@angular/core';
 import { AppService } from '../app/app.service';
+import * as moment from 'moment';
 
 
 @Component({
@@ -11,8 +12,10 @@ import { AppService } from '../app/app.service';
 export class AppComponent implements OnInit {
 
 totalSegments = 1;
+segmentFlightSelectedFor = 0;
 ondSearchPayload: any = { 'ondsearches': []};
 journeyMatrix: Array<any> = [];
+showFlightList = false;
 
 title = "British Airways"
 
@@ -32,15 +35,16 @@ journeyData : Array<any> =[];
     this.journeyMatrix.push({
       'origin': '',
       'destination': '',
-      'date':''
+      'date':moment().format('YYYY-MM-DD')
     });
   }
 
 addSegment(){
+  var lastDestination = this.journeyMatrix[this.journeyMatrix.length-1].destination;
   this.journeyMatrix.push({
-    'origin': '',
+    'origin': lastDestination,
     'destination': '',
-    'date':''
+    'date':moment().add(7, 'days').format('YYYY-MM-DD')
   });
   this.totalSegments++;
 }
@@ -49,9 +53,8 @@ getdata(data : any){
  this.appService.getSearchData(this.ondSearchPayload)
 .subscribe((response)=>{
   if(response!='No Offers'){
-    this.flightList = response
+    this.showFlightList = true;
     this.journeyData.push({segmentData : response});
-    console.log('responsee',this.journeyData)
   }
  });
 }

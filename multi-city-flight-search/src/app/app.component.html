@@ -54,11 +54,12 @@
   </div>
 </div>
 </div>
-<app-flight-list *ngFor="let segment of journeyData; let segmentIndex = index"
+<app-flight-list *ngIf="showFlightList"
   [journeyData]="journeyData"
   [segment]="segment"
   [segmentIndex]="segmentIndex"
-  [ondSearchPayload]="ondSearchPayload">
+  [ondSearchPayload]="ondSearchPayload"
+  [segmentFlightSelectedFor]="segmentFlightSelectedFor">
 </app-flight-list>
 
 

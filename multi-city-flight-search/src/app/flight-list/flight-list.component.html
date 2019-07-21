@@ -1,17 +1,33 @@
-  <table>
-  Segment {{segmentIndex+1}}
-  <tr *ngFor="let flight of segment.segmentData; let flightIndex = index" >
-    <td>Flight Origin : {{flight.localFlightSegments[0].departureAirport.name}}</td>
-    <td>Flight Departure Time : {{flight.localFlightSegments[0].departureDateTime}}</td>
-    <td>Flight Destination : {{flight.localFlightSegments[0].arrivalAirport.name}}</td>
-    <td>Flight Arrival Time : {{flight.localFlightSegments[0].arrivalDateTime}}</td>
-    <td>Flight Duration : {{flight.localFlightSegments[0].duration}}</td>
 
-    <td>
-      <div *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
-        <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.cabinOptionKey}}</label>
-        <input id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="radio" (click)="callNextSegment(cabin.nextFlightSegment.link.href)">
-      </div>
-      </td>
-  </tr>
-  </table>
+
+    <mat-expansion-panel [disabled] ="segmentIndex<segmentFlightSelectedFor" [expanded] = "segmentIndex==segmentFlightSelectedFor" id="segment{{segmentIndex}}" *ngFor="let segment of journeyData; let segmentIndex = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Segment {{segmentIndex+1}}
+          Choose Flight for {{ondSearchPayload.ondsearches[segmentIndex].origin}} - {{ondSearchPayload.ondsearches[segmentIndex].destination}}
+        </mat-panel-title>
+        <mat-panel-description>
+          Date: {{ondSearchPayload.ondsearches[segmentIndex].date}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <table>
+
+      <tr *ngFor="let flight of segment.segmentData; let flightIndex = index" >
+        <td>Flight Origin : {{flight.localFlightSegments[0].departureAirport.name}}</td>
+        <td>Flight Departure Time : {{flight.localFlightSegments[0].departureDateTime}}</td>
+        <td>Flight Destination : {{flight.localFlightSegments[0].arrivalAirport.name}}</td>
+        <td>Flight Arrival Time : {{flight.localFlightSegments[0].arrivalDateTime}}</td>
+        <td>Flight Duration : {{flight.localFlightSegments[0].duration}}</td>
+
+        <td>
+          <div *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
+            <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.cabinOptionKey}}</label>
+            <input name ="seg+{{segmentIndex}}" id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="radio" (click)="callNextSegment(cabin.nextFlightSegment.link.href)">
+          </div>
+          </td>
+      </tr>
+      </table>
+    </mat-expansion-panel>
+
+  <mat-accordion>
