@@ -1,42 +1,54 @@
-<div class="row-fluid  login ">
- <div class="col-md-offset-4 col-md-4" id="box">
-  <h2>{{title}}</h2>
-  <hr>
-  <form class="form-horizontal" action=" " method="" id="contact_form">
+<div class="main-container">
+<div class="image-container">
+  <img src="./assets/image.jpg">
+</div>
+<div class="card text-center card-container offset-md-1 col-md-10">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Multi-city</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+   <form class="form-horizontal" action=" " method="" id="contact_form">
     <fieldset>
-      <div class="form-group">
-        <div class="col-md-12">
-          <div class="input-group">
+      <div class="form-group row">
+        <div class="col-md-4">
+          <div class="input-group-lg">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             <input name="origin" placeholder="Origin" class="form-control" type="input" required="Required" [(ngModel)]="data.originLocationCode">
           </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-md-12">
-          <div class="input-group">
+
+         <div class="col-md-4">
+          <div class="input-group-lg">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
             <input name="destination" placeholder="Destination" class="form-control" type="input" required="Required" [(ngModel)]="data.destinationLocationCode">
           </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-md-12">
-          <div class="input-group">
+
+        <div class="col-md-4">
+          <div class="input-group-lg">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
             <input name="date" placeholder="Date" class="form-control" type="Date" required="Required" [(ngModel)]="data.departureDate">
           </div>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group-lg">
         <div class="col-md-12">
-          <button type="submit" class="btn btn-md btn-danger pull-right" (click)=getdata(data)>Search</button>
+          <button type="submit" class="btn btn-danger btn-lg" (click)=getdata(data)>Search</button>
         </div>
       </div>
     </fieldset>
   </form>
+  </div>
+</div>
+</div>
 
- <div>
+
+
+<!--  <div>
     <ul  *ngFor ="let flight of flightList">
       <li>{{flight.localFlightSegments[0].departureAirport.name | json}}</li>
       <li>{{flight.localFlightSegments[0].arrivalAirport.name | json}}</li>
@@ -44,4 +56,17 @@
   </ul>
   </div>
 
-</div> 
+</div>  -->
+
+
+
+<!-- <div class="card row">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#!" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
