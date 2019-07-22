@@ -19,14 +19,15 @@
           <div class="flight-container row">
             <div class="flight-details col-md-4">
               <div class="col-md-4">
-                <h5>{{flight.localFlightSegments[0].departureAirport.code}}</h5>
+                <h3 class="airport">{{flight.localFlightSegments[0].departureAirport.code}}</h3>
                 <h6>{{flight.localFlightSegments[0].departureDateTime | date : 'shortTime'}}</h6>
               </div>
               <div class="plane-img col-md-3">
                 <img src="../assets/black-plane.png">
+                <span class="duration">{{flight.localFlightSegments[0].duration}}</span>
               </div>
               <div class="col-md-4">
-                <h5>{{flight.localFlightSegments[0].arrivalAirport.code}}</h5>              
+                <h3 class="airport">{{flight.localFlightSegments[0].arrivalAirport.code}}</h3>              
                 <h6>{{flight.localFlightSegments[0].arrivalDateTime | date : 'shortTime'}}</h6>
               </div>
             <!--   <div>
@@ -34,8 +35,19 @@
                 <h5>{{flight.localFlightSegments[0].operatingCarrier.carrierName}}</h5>
               </div> -->
             </div>
-            <div class="">
+            <div class="col-md-8 cabin-container">
+            <div class="cabin-class" *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
+             <div class="card text-white bg-info mb-3" style="width: 11rem; max-height: 5rem;">
+              <div class="card-header">
+              <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.cabinOptionKey}}</label>
+              </div>
+              <div class="card-body">
+                <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.lowestSegmentPriceInCabin.amount}}{{cabin.lowestSegmentPriceInCabin.currency.code}}</label>
+                <!-- <a name ="seg+{{segmentIndex}}" id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="input" (click)="callNextSegment(cabin.nextFlightSegment.link.href)">Select</a> -->
+              </div>
+            </div> 
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -49,7 +61,7 @@
   </div>
 </div> -->
 
-   <!--    <table>
+<!--       <table>
       <tr *ngFor="let flight of segment.segmentData; let flightIndex = index" >
         <td>Flight Origin : {{flight.localFlightSegments[0].departureAirport.code}}</td>
         <td>Flight Departure Time : {{flight.localFlightSegments[0].departureDateTime}}</td>
