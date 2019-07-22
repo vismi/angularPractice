@@ -10,9 +10,17 @@
           Date: {{ondSearchPayload.ondsearches[segmentIndex].date}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-
+      <button type="button" name="button" (click)="sort(segmentIndex, 'duration')">sortByDuration</button>
+      <button type="button" name="button" (click)="sort(segmentIndex, 'departure')">sortByDeparture</button>
       <table>
 
+        <tr>
+          <th >Origin Airport</th>
+          <th>Departure</th>
+          <th >Destination Airport</th>
+          <th >Arrival</th>
+          <th >Duration</th>
+        </tr>
       <tr *ngFor="let flight of segment.segmentData; let flightIndex = index" >
         <td>Flight Origin : {{flight.localFlightSegments[0].departureAirport.name}}</td>
         <td>Flight Departure Time : {{flight.localFlightSegments[0].departureDateTime}}</td>
@@ -23,7 +31,7 @@
         <td>
           <div *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
             <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.cabinOptionKey}}</label>
-            <input name ="seg+{{segmentIndex}}" id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="radio" (click)="callNextSegment(cabin.nextFlightSegment.link.href)">
+            <input name ="seg+{{segmentIndex}}" id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="radio" (click)="callNextSegment(segmentIndex,flightIndex,cabinIndex)">
           </div>
           </td>
       </tr>
