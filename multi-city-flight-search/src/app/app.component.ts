@@ -48,6 +48,13 @@ addSegment(){
   });
   this.totalSegments++;
 }
+
+removeSegment(){
+  if(this.totalSegments>1){
+  this.totalSegments--;
+  }
+}
+
 getdata(data : any){
   this.ondSearchPayload.ondsearches = this.journeyMatrix;
  this.appService.getSearchData(this.ondSearchPayload)
