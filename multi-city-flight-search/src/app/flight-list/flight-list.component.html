@@ -11,8 +11,11 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
 
-       <button type="button" name="button" (click)="sort(segmentIndex, 'duration')">sortByDuration</button>
-      <button type="button" name="button" (click)="sort(segmentIndex, 'departure')">sortByDeparture</button>
+      <div class="row">
+        <button type="button" class="btn btn-success btn-md offset-md-6 col-md-3" name="button" (click)="sort(segmentIndex, 'duration')">Show Shortest Flights First</button>
+        <button type="button"  class="btn btn-success btn-md col-md-3" name="button" (click)="sort(segmentIndex, 'departure')">Show Earliest Flights First</button>
+      </div>
+
 
       <div class="card main-container" *ngFor="let flight of segment.segmentData; let flightIndex = index">
         <div class="card-body">
@@ -27,7 +30,7 @@
                 <span class="duration">{{flight.localFlightSegments[0].duration | slice:-5}}</span>
               </div>
               <div class="col-md-4">
-                <h3 class="airport">{{flight.localFlightSegments[0].arrivalAirport.code}}</h3>              
+                <h3 class="airport">{{flight.localFlightSegments[0].arrivalAirport.code}}</h3>
                 <h6>{{flight.localFlightSegments[0].arrivalDateTime | date : 'shortTime'}}</h6>
               </div>
             <!--   <div>
@@ -45,7 +48,7 @@
                 <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.lowestSegmentPriceInCabin.amount}}{{cabin.lowestSegmentPriceInCabin.currency.code}}</label>
                 <!-- <a name ="seg+{{segmentIndex}}" id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="input" (click)="callNextSegment(cabin.nextFlightSegment.link.href)">Select</a> -->
               </div>
-            </div> 
+            </div>
             </div>
           </div>
           </div>

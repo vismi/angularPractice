@@ -41,13 +41,15 @@ addSegment(){
   this.totalSegments++;
 }
 
-removeSegment(){
-  if(this.totalSegments>1){
-  this.totalSegments--;
+removeSegment(segmentIndex:any){
+  if(this.totalSegments>1 && segmentIndex>0){
+    this.journeyMatrix.splice(segmentIndex,1)
+    this.totalSegments--;
   }
 }
 
 getdata(data : any){
+  this.journeyData =[];
   this.ondSearchPayload.ondsearches = this.journeyMatrix;
  this.appService.getSearchData(this.ondSearchPayload)
 .subscribe((response)=>{
