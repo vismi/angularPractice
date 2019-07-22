@@ -1,5 +1,8 @@
 <div class="main-container">
-<div class="image-container">
+  <div class="logo">
+   <img src="./assets/ba_100.jpg">
+ </div>
+ <div class="image-container">
   <img src="./assets/image.jpg">
 </div>
 <div class="card text-center card-container offset-md-1 col-md-10">
@@ -11,77 +14,55 @@
     </ul>
   </div>
   <div class="card-body">
-
    <form class="form-horizontal" action=" " method="" id="contact_form">
     <fieldset>
-
-      <div *ngFor="let item of journeyMatrix; let segmentIndex = index">
-
-        <div class="form-group row">
-          <div class="col-md-4">
-            <div class="input-group-lg">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input name="origin{{segmentIndex}}" placeholder="Origin" class="form-control" type="input" required="Required" [(ngModel)]="item.origin">
-            </div>
+      <div *ngFor="let item of journeyMatrix; let segmentIndex = index" >
+        <div class="form-group row" *ngIf="totalSegments > segmentIndex">
+          <div class="input-group col-md-4">
+           <div class="input-group-prepend">
+            <span class="input-group-text" id="">From</span>
           </div>
+          <input type="input" class="form-control" name="origin{{segmentIndex}}" placeholder="Origin" required="Required" [(ngModel)]="item.origin">
+        </div>
 
-           <div class="col-md-4">
-            <div class="input-group-lg">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-              <input name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" required="Required" [(ngModel)]="item.destination">
-            </div>
-          </div>
+        <div class="input-group col-md-4">
+         <div class="input-group-prepend">
+          <span class="input-group-text" id="">To</span>
+        </div>
+        <input name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" required="Required" [(ngModel)]="item.destination">
+      </div>
 
-          <div class="col-md-4">
-            <div class="input-group-lg">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-              <input name="date{{segmentIndex}}" placeholder="Date" class="form-control" type="Date" required="Required" [(ngModel)]="item.date">
-            </div>
-          </div>
+      <div class="col-md-3">
+        <div class="input-group-md date">
+          <input name="date{{segmentIndex}}" placeholder="Date" class="form-control" type="Date" required="Required" [(ngModel)]="item.date">
         </div>
       </div>
 
+      <div class="col-md-1 remove-flight">
+         <img src="../assets/rubbish-bin-delete-button.png" *ngIf="segmentIndex > 0 " (click)=removeSegment()>
+     </div>
+   </div>
+ </div>
 
-      <div class="form-group-lg">
-        <div class="col-md-12 row">
-          <button class="btn btn-danger btn-lg" (click)="addSegment()">Add a Segment</button>
-          <button type="submit" class="btn btn-danger btn-lg" (click)=getdata(data)>Search</button>
-        </div>
-      </div>
-
-    </fieldset>
-  </form>
-  </div>
+ <div class="col-md-12 row">
+  <button class="btn btn-outline-danger col-md-2" (click)="addSegment()">Add a Flight</button>
+</div>
+<br>
+<div class="col-md-12 row searchFlight">
+  <button type="submit" class="btn btn-danger btn-md offset-md-10 col-md-2" (click)=getdata(data)>Search Flights</button>
+</div>
+</fieldset>
+</form>
 </div>
 </div>
-<app-flight-list *ngIf="showFlightList"
+<br>
+<div class="offset-md-1 col-md-10">
+  <app-flight-list *ngIf="showFlightList"
   [journeyData]="journeyData"
   [segment]="segment"
   [segmentIndex]="segmentIndex"
   [ondSearchPayload]="ondSearchPayload"
   [segmentFlightSelectedFor]="segmentFlightSelectedFor">
 </app-flight-list>
-
-
-<!--  <div>
-    <ul  *ngFor ="let flight of flightList">
-      <li>{{flight.localFlightSegments[0].departureAirport.name | json}}</li>
-      <li>{{flight.localFlightSegments[0].arrivalAirport.name | json}}</li>
-      <li>{{flight.localFlightSegments[0].departureDateTime | json}}</li>
-  </ul>
-  </div>
-
-</div>  -->
-
-
-
-<!-- <div class="card row">
-  <div class="card-header">
-    Featured
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#!" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div> -->
+</div>
+</div>
