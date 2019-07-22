@@ -35,8 +35,7 @@ export class FlightListComponent implements OnInit {
   }
 
   sort(segmentIndex:any, sortParams:any){
-    var segmentData = this.journeyData[segmentIndex].segmentData;
-
+    var segmentData= this.journeyData[segmentIndex].segmentData;
     switch(sortParams) {
    case "duration": {
      segmentData.sort(function(a, b){
