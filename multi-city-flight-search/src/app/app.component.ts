@@ -16,27 +16,19 @@ segmentFlightSelectedFor = 0;
 ondSearchPayload: any = { 'ondsearches': []};
 journeyMatrix: Array<any> = [];
 showFlightList = false;
-
-title = "British Airways"
-
-data : any ={};
-ondwanted = 0;
 response : any={};
 flightList : any =[];
-result :Array<any>=[];
 ondsearches : any;
-final : any={};
-try : any;
 journeyData : Array<any> =[];
 
  constructor(private appService:AppService) { }
 
   ngOnInit() {
     this.journeyMatrix.push({
-      'origin': '',
-      'destination': '',
-      'date':moment().format('YYYY-MM-DD')
-    });
+    'origin':'',
+    'destination': '',
+    'date':moment().add(0, 'days').format('YYYY-MM-DD')
+  });
   }
 
 addSegment(){
@@ -59,11 +51,11 @@ getdata(data : any){
   this.ondSearchPayload.ondsearches = this.journeyMatrix;
  this.appService.getSearchData(this.ondSearchPayload)
 .subscribe((response)=>{
+console.log('---',response);
   if(response!='No Offers'){
     this.showFlightList = true;
     this.journeyData.push({segmentData : response});
   }
  });
 }
-
 }
