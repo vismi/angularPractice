@@ -1565,7 +1565,7 @@ if(req.params.ondwanted==1){
         "taxInclusive": true
     }
 ]);
-}else if(req.params.ondwanted==2 && req.params.applicableOffers == '1,2,3,5,8,9,78,80,82,83,84,85,86,88,91,92,93,94,98,99,100,101,102,103,106,108,109,110,111,112,115,117,118,119,120,121,124,126,127,128,129,130,134,135,136,137,138,139,141,143'){
+}else if(req.params.ondwanted==2){
   res.json([
     {
         "localFlightSegments": [
@@ -2150,7 +2150,7 @@ if(req.params.ondwanted==1){
         "taxInclusive": true
     }
 ]);
-}else if(req.params.ondwanted==3 && req.params.applicableOffers == '1,2,25'){
+}else if(req.params.ondwanted==3){
   res.json([
     {
         "localFlightSegments": [
