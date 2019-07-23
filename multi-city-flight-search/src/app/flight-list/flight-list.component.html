@@ -35,10 +35,7 @@
                 <h3 class="airport">{{flight.localFlightSegments[0].arrivalAirport.code}}</h3>
                 <h6>{{flight.localFlightSegments[0].arrivalDateTime | date : 'shortTime'}}</h6>
               </div>
-            <!--   <div>
-                <span>Operating Carrier</span>
-                <h5>{{flight.localFlightSegments[0].operatingCarrier.carrierName}}</h5>
-              </div> -->
+              
             </div>
             <div class="col-md-8 cabin-container">
             <div class="cabin-class" *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
@@ -56,31 +53,6 @@
           </div>
         </div>
       </div>
-
-
-<!--       <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Info card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div> -->
-
-<!--       <table>
-      <tr *ngFor="let flight of segment.segmentData; let flightIndex = index" >
-        <td>Flight Origin : {{flight.localFlightSegments[0].departureAirport.code}}</td>
-        <td>Flight Departure Time : {{flight.localFlightSegments[0].departureDateTime}}</td>
-        <td>Flight Destination : {{flight.localFlightSegments[0].arrivalAirport.code}}</td>
-        <td>Flight Arrival Time : {{flight.localFlightSegments[0].arrivalDateTime}}</td>
-        <td>Flight Duration : {{flight.localFlightSegments[0].duration}}</td>
-        <td>
-          <div *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
-            <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.cabinOptionKey}}</label>
-            <input name ="seg+{{segmentIndex}}" id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="radio" (click)="callNextSegment(cabin.nextFlightSegment.link.href)">
-          </div>
-          </td>
-      </tr>
-    </table> -->
 
   </mat-expansion-panel>
 
