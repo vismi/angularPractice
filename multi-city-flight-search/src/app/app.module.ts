@@ -15,13 +15,15 @@ import {
 
 
 import { FlightListComponent } from './flight-list/flight-list.component';
+import { SummaryComponent } from './summary/summary/summary.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FlightListComponent
+    FlightListComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

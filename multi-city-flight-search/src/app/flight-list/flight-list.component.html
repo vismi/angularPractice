@@ -44,8 +44,9 @@
               <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.cabinOptionKey}}</label>
               </div>
               <div class="card-body">
-                <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.lowestSegmentPriceInCabin.amount}}{{cabin.lowestSegmentPriceInCabin.currency.code}}</label>
-                <button name ="seg+{{segmentIndex}}" id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="input" (click)="callNextSegment(segmentIndex, flightIndex, cabinIndex)">Select</button>
+                <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.lowestSegmentPriceInCabin.amount}} {{cabin.lowestSegmentPriceInCabin.currency.code}}</label>
+                <a name ="seg+{{segmentIndex}}" id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="input" (click)="callNextSegment(segmentIndex, flightIndex, cabinIndex)">
+                  <img src="../assets/icons8-checked-24.png"></a>
               </div>
             </div>
             </div>
@@ -57,3 +58,4 @@
   </mat-expansion-panel>
 
 </mat-accordion>
+<app-summary></app-summary>
