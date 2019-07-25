@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from '../../app/app.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-flight-list',
@@ -15,7 +16,7 @@ export class FlightListComponent implements OnInit {
   @Input() ondSearchPayload: any;
   @Input() segmentFlightSelectedFor: any;
 
-  constructor(private appService:AppService) { }
+  constructor(private appService:AppService, private router:Router) { }
 
   ngOnInit() {
 
@@ -23,6 +24,9 @@ export class FlightListComponent implements OnInit {
   }
 
   flightsSelected: Array<any> = [];
+
+
+
   callNextSegment(segmentIndex:any, flightIndex:any, cabinIndex:any){
      var href = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.link.href;
      this.appService.getSearchDataForNextSegment(href,this.ondSearchPayload)

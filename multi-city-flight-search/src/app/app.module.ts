@@ -15,7 +15,7 @@ import {
 
 
 import { FlightListComponent } from './flight-list/flight-list.component';
-import { SummaryComponent } from './summary/summary/summary.component';
+import { SummaryComponent } from './summary/summary.component';
 
 
 
