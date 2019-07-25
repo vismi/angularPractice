@@ -1,9 +1,12 @@
+
+<h1>Select Flights</h1>
   <mat-accordion>
 
-    <mat-expansion-panel [disabled] ="segmentIndex<segmentFlightSelectedFor" [expanded] = "segmentIndex==segmentFlightSelectedFor" id="segment{{segmentIndex}}" *ngFor="let segment of journeyData; let segmentIndex = index">
+    <mat-expansion-panel [expanded] ="segmentIndex>segmentFlightSelectedFor"  id="segment{{segmentIndex}}" *ngFor="let segment of journeyData; let segmentIndex = index">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <b>Flight {{segmentIndex+1}}</b>
+          <br>
           <b>Choose Flight for {{ondSearchPayload.ondsearches[segmentIndex].origin}} - {{ondSearchPayload.ondsearches[segmentIndex].destination}}</b>
         </mat-panel-title>
         <mat-panel-description>
@@ -35,7 +38,7 @@
                 <h3 class="airport">{{flight.localFlightSegments[0].arrivalAirport.code}}</h3>
                 <h6>{{flight.localFlightSegments[0].arrivalDateTime | date : 'shortTime'}}</h6>
               </div>
-              
+
             </div>
             <div class="col-md-8 cabin-container">
             <div class="cabin-class" *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
@@ -44,7 +47,7 @@
               <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.cabinOptionKey}}</label>
               </div>
               <div class="card-body">
-                <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.lowestSegmentPriceInCabin.amount}} {{cabin.lowestSegmentPriceInCabin.currency.code}}</label>
+                <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.lowestJourneyPriceInCabin.amount}} {{cabin.lowestJourneyPriceInCabin.currency.code}}</label>
                 <a name ="seg+{{segmentIndex}}" id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="input" (click)="callNextSegment(segmentIndex, flightIndex, cabinIndex)">
                   <img src="../assets/icons8-checked-24.png"></a>
               </div>

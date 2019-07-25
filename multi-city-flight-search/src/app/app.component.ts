@@ -12,7 +12,7 @@ import * as moment from 'moment';
 export class AppComponent implements OnInit {
 
 totalSegments = 1;
-segmentFlightSelectedFor = 0;
+segmentFlightSelectedFor = -1;
 ondSearchPayload: any = { 'ondsearches': []};
 journeyMatrix: Array<any> = [];
 showFlightList = false;
@@ -33,10 +33,11 @@ journeyData : Array<any> =[];
 
 addSegment(){
   var lastDestination = this.journeyMatrix[this.journeyMatrix.length-1].destination;
+  var lastDate = this.journeyMatrix[this.journeyMatrix.length-1].date;
   this.journeyMatrix.push({
     'origin': lastDestination,
     'destination': '',
-    'date':moment().add(7, 'days').format('YYYY-MM-DD')
+    'date':moment(lastDate).add(7, 'days').format('YYYY-MM-DD')
   });
   this.totalSegments++;
 }

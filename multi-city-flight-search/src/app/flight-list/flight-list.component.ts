@@ -27,9 +27,18 @@ export class FlightListComponent implements OnInit {
      var href = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.link.href;
      this.appService.getSearchDataForNextSegment(href,this.ondSearchPayload)
     .subscribe((response)=>{
-      if(response!='No Offers'){
-        this.segmentFlightSelectedFor++;
-        this.journeyData.push({segmentData : response});
+      if(response!='No Offers'){console.log('response',response);
+        if(segmentIndex<=this.segmentFlightSelectedFor){
+          this.segmentFlightSelectedFor=segmentIndex;
+          this.journeyData[segmentIndex].segmentData = response;
+          for(var i =0; i<this.ondSearchPayload.ondsearches.length;i++){
+            this.journeyData.pop();
+          }
+        }else{
+          this.segmentFlightSelectedFor++;
+          this.journeyData.push({segmentData : response});
+        }
+
       }
      });
   }
