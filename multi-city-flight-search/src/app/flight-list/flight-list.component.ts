@@ -63,14 +63,13 @@ export class FlightListComponent implements OnInit {
         this.selectedJourneyItems.push(selectionObject);
         let flightListElement = document.getElementById('segment'+segmentIndex);
         console.log('flightListElement',flightListElement);
-        flightListElement.scrollIntoView();
+        flightListElement.scrollIntoView({'behavior':'smooth'});
       }
      });
    }else if(this.journeyData.length==this.ondSearchPayload.ondsearches.length){
      //this.router.navigate(['/summary'],this.selectedJourneyItems);
      this.selectedJourneyItems.push(selectionObject);
      this.router.navigate(['/summary'],{state: {data: this.selectedJourneyItems}});
-     console.log('selectedJourneyItems',this.selectedJourneyItems);
 
    }
   }
