@@ -31,7 +31,10 @@ export class FlightListComponent implements OnInit {
 
   callNextSegment(segmentIndex:any, flightIndex:any, cabinIndex:any){
      var href = '';
-     var selectionObject = {};
+     var selectionObject = {
+       'cabin':{},
+       'localFlightSegments':{}
+     };
 
      selectionObject.cabin = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex];
      selectionObject.localFlightSegments = this.journeyData[segmentIndex].segmentData[flightIndex].localFlightSegments[0];
