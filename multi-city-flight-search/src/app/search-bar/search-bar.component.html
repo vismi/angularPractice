@@ -1,69 +1,71 @@
+<div class="search-bar-container">
+  <div class="card text-center card-container custom-card-container offset-md-1 col-md-10">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Multi-city</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+     <form class="form-horizontal" action=" " method="" id="contact_form">
+      <fieldset>
+        <div *ngFor="let item of journeyMatrix; let segmentIndex = index" >
+          <div class="form-group row" *ngIf="totalSegments > segmentIndex">
+            <div class="input-group col-md-4">
+             <div class="input-group-prepend">
+              <span class="input-group-text" id="">From</span>
+            </div>
+            <input type="input" class="form-control" name="origin{{segmentIndex}}" placeholder="Origin" required="Required" [(ngModel)]="item.origin">
 
+   <!--          <input type="input" class="form-control" formControlName="origin" name="origin{{segmentIndex}}" placeholder="Origin" [ngClass]="{ 'is-invalid': submitted && userData.controls['origin'].errors }" required="Required" [(ngModel)]="item.origin">
+            <div *ngIf="submitted && userData.controls['origin'].errors" class="invalid-feedback">
+              <div *ngIf="userData.controls['origin'].errors.required">Origin is required</div>
+            </div> -->
+          </div>
 
-<div class="card text-center card-container custom-card-container offset-md-1 col-md-10">
-  <div class="card-header">
-    <ul class="nav nav-tabs card-header-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Multi-city</a>
-      </li>
-    </ul>
-  </div>
-  <div class="card-body">
-   <form class="form-horizontal" action=" " method="" id="contact_form">
-    <fieldset>
-      <div *ngFor="let item of journeyMatrix; let segmentIndex = index" >
-        <div class="form-group row" *ngIf="totalSegments > segmentIndex">
           <div class="input-group col-md-4">
            <div class="input-group-prepend">
-            <span class="input-group-text" id="">From</span>
+            <span class="input-group-text" id="">To</span>
           </div>
-          <input type="input" class="form-control" name="origin{{segmentIndex}}" placeholder="Origin" required="Required" [(ngModel)]="item.origin">
+          <input name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" required="Required" [(ngModel)]="item.destination">
 
- <!--          <input type="input" class="form-control" formControlName="origin" name="origin{{segmentIndex}}" placeholder="Origin" [ngClass]="{ 'is-invalid': submitted && userData.controls['origin'].errors }" required="Required" [(ngModel)]="item.origin">
-          <div *ngIf="submitted && userData.controls['origin'].errors" class="invalid-feedback">
-            <div *ngIf="userData.controls['origin'].errors.required">Origin is required</div>
-          </div> -->
+  <!--         <input formControlName="destination"  name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" [ngClass]="{ 'is-invalid': submitted && userData.controls['destination'].errors }" required="Required" [(ngModel)]="item.destination">
+          <div *ngIf="submitted && userData.controls['destination'].errors" class="invalid-feedback">
+              <div *ngIf="userData.controls['destination'].errors.required">Destination is required</div>
+            </div> -->
         </div>
 
-        <div class="input-group col-md-4">
-         <div class="input-group-prepend">
-          <span class="input-group-text" id="">To</span>
+        <div class="col-md-3">
+          <div class="input-group-md date">
+            <input name="date{{segmentIndex}}" placeholder="Date" class="form-control" type="Date"
+             required="Required" [(ngModel)]="item.date">
+      <!--       <input formControlName="date" name="date{{segmentIndex}}" placeholder="Date" class="form-control" type="Date"
+            [ngClass]="{ 'is-invalid': submitted && userData.controls['date'].errors }" required="Required" [(ngModel)]="item.date">
+            <div *ngIf="submitted && userData.controls['date'].errors" class="invalid-feedback">
+              <div *ngIf="userData.controls['date'].errors.required">Date is required</div>
+            </div> -->
+          </div>
         </div>
-        <input name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" required="Required" [(ngModel)]="item.destination">
 
-<!--         <input formControlName="destination"  name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" [ngClass]="{ 'is-invalid': submitted && userData.controls['destination'].errors }" required="Required" [(ngModel)]="item.destination">
-        <div *ngIf="submitted && userData.controls['destination'].errors" class="invalid-feedback">
-            <div *ngIf="userData.controls['destination'].errors.required">Destination is required</div>
-          </div> -->
-      </div>
-
-      <div class="col-md-3">
-        <div class="input-group-md date">
-          <input name="date{{segmentIndex}}" placeholder="Date" class="form-control" type="Date"
-           required="Required" [(ngModel)]="item.date">
-    <!--       <input formControlName="date" name="date{{segmentIndex}}" placeholder="Date" class="form-control" type="Date"
-          [ngClass]="{ 'is-invalid': submitted && userData.controls['date'].errors }" required="Required" [(ngModel)]="item.date">
-          <div *ngIf="submitted && userData.controls['date'].errors" class="invalid-feedback">
-            <div *ngIf="userData.controls['date'].errors.required">Date is required</div>
-          </div> -->
-        </div>
-      </div>
-
-      <div class="col-md-1 remove-flight">
-         <img src="../assets/rubbish-bin-delete-button.png" *ngIf="segmentIndex > 0 " (click)=removeSegment(segmentIndex)>
+        <div class="col-md-1 remove-flight">
+           <img src="../assets/rubbish-bin-delete-button.png" *ngIf="segmentIndex > 0 " (click)=removeSegment(segmentIndex)>
+       </div>
      </div>
    </div>
- </div>
 
-<br>
-<div class="col-md-12 row form-group searchFlight" >
-  <button class="btn btn-info col-md-2" (click)="addSegment()">Add a Flight</button>
-  <button type="submit" class="btn btn-danger btn-md offset-md-8 col-md-2" (click)=getdata(item)>Search Flights</button>
-</div>
-</fieldset>
-</form>
-</div>
-</div>
+  <br>
+  <div class="col-md-12 row form-group searchFlight" >
+    <button class="btn btn-info col-md-2" (click)="addSegment()">Add a Flight</button>
+    <button type="submit" class="btn btn-danger btn-md offset-md-8 col-md-2" (click)=getdata(item)>Search Flights</button>
+  </div>
+  </fieldset>
+  </form>
+  </div>
+  </div>
+<div>
+
+
 <br>
 <div class="offset-md-1 col-md-10">
   <app-flight-list *ngIf="showFlightList"

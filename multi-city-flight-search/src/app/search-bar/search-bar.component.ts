@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchBarService } from '../search-bar/search-bar.service';
 import * as moment from 'moment';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';  
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -54,12 +54,12 @@ journeyData : Array<any> =[];
 addSegment(){
   var lastDestination = this.journeyMatrix[this.journeyMatrix.length-1].destination;
   var lastDate = this.journeyMatrix[this.journeyMatrix.length-1].date;
-  this.journeyMatrix.push({
+if(this.totalSegments<6){  this.journeyMatrix.push({
     'origin': lastDestination,
     'destination': '',
     'date':moment(lastDate).add(7, 'days').format('YYYY-MM-DD')
   });
-  this.totalSegments++;
+  this.totalSegments++;}
 }
 
 removeSegment(segmentIndex:any){

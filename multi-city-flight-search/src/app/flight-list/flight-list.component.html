@@ -1,5 +1,5 @@
-
-<h1>Select Flights</h1>
+<div class="flight-list-container">
+<h1 class="flight-List-Heading">Select Flights</h1>
   <mat-accordion>
 
     <mat-expansion-panel [expanded] ="segmentIndex>=segmentFlightSelectedFor"  id="segment{{segmentIndex}}" *ngFor="let segment of journeyData; let segmentIndex = index">
@@ -61,3 +61,4 @@
   </mat-expansion-panel>
 
 </mat-accordion>
+<div>
