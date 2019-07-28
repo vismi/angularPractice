@@ -33,7 +33,7 @@ export class FlightListComponent implements OnInit {
        href = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.link.href;
      }
 
-     if(href!='' && this.journeyData.length=this.ondSearchPayload.ondsearches.length){
+     if(href!='' && this.journeyData.length!=this.ondSearchPayload.ondsearches.length){
     this.searchBarService.getSearchDataForNextSegment(href,this.ondSearchPayload)
     .subscribe((response)=>{
       if(response!='No Offers'){
