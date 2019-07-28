@@ -29,7 +29,9 @@ journeyData : Array<any> =[];
   ngOnInit() {
 
   this.userData = this.formBuilder.group({
-            origin: ['', Validators.required]
+            origin: ['', Validators.required],
+            destination: ['', Validators.required],
+            date: ['', Validators.required]
         });
 
     this.journeyMatrix.push({
@@ -43,7 +45,7 @@ journeyData : Array<any> =[];
     onSubmit() {
         this.submitted = true;
 
-        if (this.registerForm.invalid) {
+        if (this.userData.invalid) {
             return;
         }
         }
