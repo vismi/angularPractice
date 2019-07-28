@@ -1,13 +1,13 @@
-<div class="flight-list-container">
+<div class="offset-md-1 col-md-10 flight-list-inner" >
 <h1 class="flight-List-Heading">Select Flights</h1>
   <mat-accordion>
 
     <mat-expansion-panel [expanded] ="segmentIndex>=segmentFlightSelectedFor"  id="segment{{segmentIndex}}" *ngFor="let segment of journeyData; let segmentIndex = index">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          <b>Flight {{segmentIndex+1}}</b>
+          <b>Flight {{segmentIndex+1}} </b>
           <br>
-          <b>Choose Flight for {{ondSearchPayload.ondsearches[segmentIndex].origin}} - {{ondSearchPayload.ondsearches[segmentIndex].destination}}</b>
+          <b>Choose Flight for {{ondSearchPayload.ondsearches[segmentIndex].origin}} to {{ondSearchPayload.ondsearches[segmentIndex].destination}}</b>
         </mat-panel-title>
         <mat-panel-description>
           <b>Date: {{ondSearchPayload.ondsearches[segmentIndex].date}}</b>
@@ -27,7 +27,7 @@
           <div class="flight-container row">
             <div class="flight-details col-md-4">
               <div class="col-md-4">
-                <h3 class="airport">{{flight.localFlightSegments[0].departureAirport.code}}</h3>
+                <h4 class="airport">{{flight.localFlightSegments[0].departureAirport.code}}</h4>
                 <h6>{{flight.localFlightSegments[0].departureDateTime | date : 'shortTime'}}</h6>
               </div>
               <div class="plane-img col-md-3">
@@ -35,7 +35,7 @@
                 <span class="duration">{{flight.localFlightSegments[0].duration | slice:2:7}}</span>
               </div>
               <div class="col-md-4">
-                <h3 class="airport">{{flight.localFlightSegments[0].arrivalAirport.code}}</h3>
+                <h4 class="airport">{{flight.localFlightSegments[0].arrivalAirport.code}}</h4>
                 <h6>{{flight.localFlightSegments[0].arrivalDateTime | date : 'shortTime'}}</h6>
               </div>
 
@@ -61,4 +61,4 @@
   </mat-expansion-panel>
 
 </mat-accordion>
-<div>
+</div>
