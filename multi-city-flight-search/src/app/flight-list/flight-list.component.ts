@@ -33,7 +33,8 @@ export class FlightListComponent implements OnInit {
      var href = '';
      var selectionObject = {};
 
-     selectionObject = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex];
+     selectionObject.cabin = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex];
+     selectionObject.localFlightSegments = this.journeyData[segmentIndex].segmentData[flightIndex].localFlightSegments[0];
      if(this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.hasOwnProperty('link')){
        href = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.link.href;
      }
@@ -47,6 +48,7 @@ export class FlightListComponent implements OnInit {
           this.segmentFlightSelectedFor=segmentIndex;
           let timesToPop = this.journeyData.length;
           this.journeyData.splice(segmentIndex+1);
+          this.selectedJourneyItems.splice(segmentIndex);
         }else{
           console.log('normal');
           this.segmentFlightSelectedFor++;
@@ -57,7 +59,8 @@ export class FlightListComponent implements OnInit {
      });
    }else if(this.journeyData.length==this.ondSearchPayload.ondsearches.length){
      //this.router.navigate(['/summary'],this.selectedJourneyItems);
-     this.router.navigate(['/summary'],{state: {data: this.journeyData}});
+     this.selectedJourneyItems.push(selectionObject);
+     this.router.navigate(['/summary'],{state: {data: this.selectedJourneyItems}});
      console.log('completed');
 
    }

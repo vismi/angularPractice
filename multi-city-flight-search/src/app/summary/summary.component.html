@@ -1,23 +1,25 @@
 <div class="row  summary-container">
-	<div class="card text-center summary-body  offset-md-2 col-md-8" *ngFor='let item of selectedJourneyItems'>
+	<div class="card text-center summary-body  offset-md-2 col-md-8" >
 		<div class="card-header">
 			Flight Summary
 		</div>
-		<div class="card-body">
+		<div class="card-body" *ngFor="let item of selectedJourneyItems">
 			<div class="flight-details row">
 				<div class="col-md-4">
-					<h3 class="airport">LHR</h3>
-					<h5>7:00 AM</h5>
-					<h6>Terminal 2A</h6>
+					<h3 class="airport">{{item.localFlightSegments.departureAirport.name}}</h3>
+					<h5>{{item.localFlightSegments.departureAirport.time}}</h5>
+					<h6>Terminal {{item.localFlightSegments.departureAirport.terminal}}</h6>
 				</div>
 				<div class="plane-img col-md-4">
 					<img src="../assets/black-plane.png">
-					<span class="duration">12h 50m</span>
+					<span class="duration">{{item.localFlightSegments.duration}}</span>
+					<span class="carrierName">{{item.localFlightSegments.marketingCarrier.carrierName}}</span>
+					<span class="flightNo">{{item.localFlightSegments.marketingCarrier.carrierCode}} - {{item.localFlightSegments.marketingCarrier.flightNumber}}</span>
 				</div>
 				<div class="col-md-4">
-					<h3 class="airport">JFK</h3>
-					<h5>11:00 PM</h5>
-					<h6>Terminal 5</h6>
+					<h3 class="airport">{{item.localFlightSegments.arrivalAirport.name}}</h3>
+					<h5>{{item.localFlightSegments.arrivalAirport.time}}</h5>
+					<h6>Terminal {{item.localFlightSegments.arrivalAirport.terminal}}</h6>
 				</div>
 			</div>
 		</div>
