@@ -32,7 +32,7 @@
               </div>
               <div class="plane-img col-md-3">
                 <img src="../assets/black-plane.png">
-                <span class="duration">{{flight.localFlightSegments[0].duration | slice:-5}}</span>
+                <span class="duration">{{flight.localFlightSegments[0].duration | slice:2:7}}</span>
               </div>
               <div class="col-md-4">
                 <h3 class="airport">{{flight.localFlightSegments[0].arrivalAirport.code}}</h3>

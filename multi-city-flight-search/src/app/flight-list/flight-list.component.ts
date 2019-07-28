@@ -33,11 +33,14 @@ export class FlightListComponent implements OnInit {
      var href = '';
      var selectionObject = {
        'cabin':{},
-       'localFlightSegments':{}
+       'localFlightSegments':{},
+    
      };
 
      selectionObject.cabin = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex];
      selectionObject.localFlightSegments = this.journeyData[segmentIndex].segmentData[flightIndex].localFlightSegments[0];
+   
+
      if(this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.hasOwnProperty('link')){
        href = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.link.href;
      }
@@ -64,7 +67,7 @@ export class FlightListComponent implements OnInit {
      //this.router.navigate(['/summary'],this.selectedJourneyItems);
      this.selectedJourneyItems.push(selectionObject);
      this.router.navigate(['/summary'],{state: {data: this.selectedJourneyItems}});
-     console.log('completed');
+     console.log('selectedJourneyItems',this.selectedJourneyItems);
 
    }
   }
