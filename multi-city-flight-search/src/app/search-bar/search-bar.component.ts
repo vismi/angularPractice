@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchBarService } from '../search-bar/search-bar.service';
 import * as moment from 'moment';
+import { FormControl, FormGroup, AbstractControl, FormBuilder, Validators,} from '@angular/forms';  
 
 
 @Component({
@@ -20,16 +21,33 @@ response : any={};
 flightList : any =[];
 ondsearches : any;
 journeyData : Array<any> =[];
+ userData: FormGroup;
+    submitted = false;
 
- constructor(private searchBarService:SearchBarService) { }
+ constructor(private searchBarService:SearchBarService , private formBuilder:FormBuilder) { }
 
   ngOnInit() {
+
+  this.userData = new FormGroup({
+            origin:  new FormControl({ value: '' }, Validators.compose([Validators.required])),
+        });
+
     this.journeyMatrix.push({
     'origin':'',
     'destination': '',
     'date':moment().add(0, 'days').format('YYYY-MM-DD')
   });
   }
+
+
+    onSubmit() {
+        this.submitted = true;
+
+        if (this.userData.invalid) {
+            return;
+        }
+        }
+
 
 addSegment(){
   var lastDestination = this.journeyMatrix[this.journeyMatrix.length-1].destination;
