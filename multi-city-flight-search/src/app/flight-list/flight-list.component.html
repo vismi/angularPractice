@@ -1,11 +1,10 @@
 <div class="offset-md-1 col-md-10 flight-list-inner" >
 <h1 class="flight-List-Heading">Select Flights</h1>
   <mat-accordion>
-
     <mat-expansion-panel [expanded] ="segmentIndex>=segmentFlightSelectedFor"  id="segment{{segmentIndex}}" *ngFor="let segment of journeyData; let segmentIndex = index">
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header class="filter-row">
         <mat-panel-title>
-          <b>Flight {{segmentIndex+1}} </b>
+          <b>Flight {{segmentIndex+1}} </b>&nbsp;
           <br>
           <b>Choose Flight for {{ondSearchPayload.ondsearches[segmentIndex].origin}} to {{ondSearchPayload.ondsearches[segmentIndex].destination}}</b>
         </mat-panel-title>
@@ -14,10 +13,10 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
 
-      <div class="row">
+      <div class="row ">
       	<div class="col-md-12">
-        <button type="button" class="btn btn-success btn-md offset-md-5 col-md-3" name="button" (click)="sort(segmentIndex, 'duration')">Show Shortest Flights First</button>
-        <button type="button"  class="btn btn-success btn-md offset-md-1 col-md-3" name="button" (click)="sort(segmentIndex, 'departure')">Show Earliest Flights First</button>
+        <button type="button" class="btn filter-button btn-md offset-md-5 col-md-3" name="button" (click)="sort(segmentIndex, 'duration')">Show Shortest Flights First</button>
+        <button type="button"  class="btn filter-button btn-md offset-md-1 col-md-3" name="button" (click)="sort(segmentIndex, 'departure')">Show Earliest Flights First</button>
       </div>
       </div>
 <br>

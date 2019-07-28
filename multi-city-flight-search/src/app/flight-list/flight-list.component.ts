@@ -63,7 +63,7 @@ export class FlightListComponent implements OnInit {
         this.selectedJourneyItems.push(selectionObject);
         let flightListElement = document.getElementById('segment'+segmentIndex);
         console.log('flightListElement',flightListElement);
-        flightListElement.scrollIntoView({'behaviour':'smooth'});
+        flightListElement.scrollIntoView();
       }
      });
    }else if(this.journeyData.length==this.ondSearchPayload.ondsearches.length){

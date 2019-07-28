@@ -2,13 +2,26 @@
 
 .flight-list-inner{
 
+.filter-row{
+	background-color:#DCDCDC;
+}
+
+
 	h1{
 		color: #004486;
 		font-family: mylius-modern-reg,Arial,sans-serif;
 
 font-weight: 400;
 padding-top: 30px;
+
+
 	}
+
+	.filter-button {
+	background-color:#5F9EA0;
+	color: white;
+	margin-top:20px;
+}
 	.flight-details{
 	display: flex;
 	justify-content: space-evenly;
