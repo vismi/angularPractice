@@ -45,20 +45,18 @@ export class FlightListComponent implements OnInit {
         if(segmentIndex+1<this.journeyData.length){
           console.log('prev option changed');
           this.segmentFlightSelectedFor=segmentIndex;
-          this.journeyData[segmentIndex].segmentData = response;
           console.log('bef',this.journeyData);
-          for(var i =segmentIndex+1; i<this.journeyData.length;i++){
-            console.log('pop',i);
-            this.journeyData.pop();
-            this.selectedJourneyItems.pop();
-          }
+          let timesToPop = this.journeyData.length;
+          this.journeyData.splice(segmentIndex+1);
+
           console.log('mid',this.journeyData);
         }else{
           console.log('normal');
           this.segmentFlightSelectedFor++;
+          this.journeyData.push({segmentData : response});
         }
         console.log('af',this.journeyData);
-        this.journeyData.push({segmentData : response});
+        //this.journeyData.push({segmentData : response});
         this.selectedJourneyItems.push(selectionObject);
       }
      });
