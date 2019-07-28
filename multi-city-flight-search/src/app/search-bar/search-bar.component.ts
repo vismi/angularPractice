@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchBarService } from '../search-bar/search-bar.service';
 import * as moment from 'moment';
-import { FormControl, FormGroup, AbstractControl, FormBuilder, Validators,} from '@angular/forms';  
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';  
 
 
 @Component({
@@ -28,8 +28,8 @@ journeyData : Array<any> =[];
 
   ngOnInit() {
 
-  this.userData = new FormGroup({
-            origin:  new FormControl({ value: '' }, Validators.compose([Validators.required])),
+  this.userData = this.formBuilder.group({
+            origin: ['', Validators.required]
         });
 
     this.journeyMatrix.push({
@@ -43,7 +43,7 @@ journeyData : Array<any> =[];
     onSubmit() {
         this.submitted = true;
 
-        if (this.userData.invalid) {
+        if (this.registerForm.invalid) {
             return;
         }
         }
