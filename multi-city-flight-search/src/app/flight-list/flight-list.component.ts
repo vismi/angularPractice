@@ -34,12 +34,12 @@ export class FlightListComponent implements OnInit {
      var selectionObject = {
        'cabin':{},
        'localFlightSegments':{},
-    
+
      };
 
      selectionObject.cabin = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex];
      selectionObject.localFlightSegments = this.journeyData[segmentIndex].segmentData[flightIndex].localFlightSegments[0];
-   
+
 
      if(this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.hasOwnProperty('link')){
        href = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.link.href;
@@ -61,6 +61,9 @@ export class FlightListComponent implements OnInit {
         }
         this.journeyData.push({segmentData : response});
         this.selectedJourneyItems.push(selectionObject);
+        let flightListElement = document.getElementById('segment'+segmentIndex);
+        console.log('flightListElement',flightListElement);
+        flightListElement.scrollIntoView({'behaviour':'smooth'});
       }
      });
    }else if(this.journeyData.length==this.ondSearchPayload.ondsearches.length){
