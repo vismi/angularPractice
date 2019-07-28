@@ -16,10 +16,12 @@ export class FlightListComponent implements OnInit {
   @Input() ondSearchPayload: any;
   @Input() segmentFlightSelectedFor: any;
 
+  selectedJourneyItems: any;
+
   constructor(private searchBarService:SearchBarService, private router:Router) { }
 
   ngOnInit() {
-
+    this.selectedJourneyItems= [];
 
   }
 
@@ -29,28 +31,42 @@ export class FlightListComponent implements OnInit {
 
   callNextSegment(segmentIndex:any, flightIndex:any, cabinIndex:any){
      var href = '';
+     var selectionObject = {};
+
+     selectionObject = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex];
      if(this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.hasOwnProperty('link')){
        href = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.link.href;
      }
 
-     if(href!='' && this.journeyData.length!=this.ondSearchPayload.ondsearches.length){
+     if(href!=''){
     this.searchBarService.getSearchDataForNextSegment(href,this.ondSearchPayload)
     .subscribe((response)=>{
       if(response!='No Offers'){
         if(segmentIndex+1<this.journeyData.length){
+          console.log('prev option changed');
           this.segmentFlightSelectedFor=segmentIndex;
           this.journeyData[segmentIndex].segmentData = response;
-          for(var i =segmentIndex; i<this.journeyData.length;i++){
+          console.log('bef',this.journeyData);
+          for(var i =segmentIndex+1; i<this.journeyData.length;i++){
+            console.log('pop',i);
             this.journeyData.pop();
+            this.selectedJourneyItems.pop();
           }
+          console.log('mid',this.journeyData);
         }else{
+          console.log('normal');
           this.segmentFlightSelectedFor++;
         }
+        console.log('af',this.journeyData);
         this.journeyData.push({segmentData : response});
+        this.selectedJourneyItems.push(selectionObject);
       }
      });
-   }else {
-     this.router.navigate(['/summary']);
+   }else if(this.journeyData.length==this.ondSearchPayload.ondsearches.length){
+     //this.router.navigate(['/summary'],this.selectedJourneyItems);
+     this.router.navigate(['/summary'],{state: {data: this.journeyData}});
+     console.log('completed');
+
    }
   }
 

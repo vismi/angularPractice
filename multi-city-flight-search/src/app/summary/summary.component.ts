@@ -9,7 +9,11 @@ export class SummaryComponent implements OnInit {
 
   constructor() { }
 
+  selectedJourneyItems: any;
   ngOnInit() {
+    if(history.state.data!=undefined){
+      this.selectedJourneyItems = history.state.data;
+    }
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="row  summary-container">
-	<div class="card text-center summary-body  offset-md-2 col-md-8">
+	<div class="card text-center summary-body  offset-md-2 col-md-8" *ngFor='let item of selectedJourneyItems'>
 		<div class="card-header">
 			Flight Summary
 		</div>
@@ -18,7 +18,7 @@
 					<h3 class="airport">JFK</h3>
 					<h5>11:00 PM</h5>
 					<h6>Terminal 5</h6>
-				</div> 
+				</div>
 			</div>
 		</div>
 		<div class="card-footer">
