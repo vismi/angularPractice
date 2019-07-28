@@ -78,6 +78,8 @@ console.log('---',response);
   if(response!='No Offers'){
     this.showFlightList = true;
     this.journeyData.push({segmentData : response});
+    let flightListElement = document.getElementById('flight-list-outer');
+    flightListElement.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
   }
  });
 }

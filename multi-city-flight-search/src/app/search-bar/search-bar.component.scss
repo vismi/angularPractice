@@ -6,7 +6,7 @@
   background-attachment: fixed;
   background-size: cover;
   height: 50rem;
-  
+
   .card-container.custom-card-container {
   padding-left:0;
   padding-right:0;
@@ -41,5 +41,8 @@
   }
   }
   }
-
+}
+#flight-list-outer{
+  position: absolute;
+  top: 58rem;
 }
