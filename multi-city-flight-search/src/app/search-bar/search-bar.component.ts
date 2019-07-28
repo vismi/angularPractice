@@ -29,8 +29,8 @@ journeyData : Array<any> =[];
   ngOnInit() {
 
   this.userData = this.formBuilder.group({
-            origin: ['', Validators.required],
-            destination: ['', Validators.required],
+            origin: ['',[Validators.required , Validators.minLength(3)]],
+            destination: ['', [Validators.required , Validators.minLength(3)]],
             date: ['', Validators.required]
         });
 
