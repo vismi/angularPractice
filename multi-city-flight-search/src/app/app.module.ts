@@ -15,7 +15,8 @@ import {
 
 
 import { FlightListComponent } from './flight-list/flight-list.component';
-import { SummaryComponent } from './summary/summary/summary.component';
+import { SummaryComponent } from './summary/summary.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 
 
@@ -23,7 +24,8 @@ import { SummaryComponent } from './summary/summary/summary.component';
   declarations: [
     AppComponent,
     FlightListComponent,
-    SummaryComponent
+    SummaryComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

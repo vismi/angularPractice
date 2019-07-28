@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppService } from '../../app/app.service';
+import { SearchBarService } from '../../app/search-bar/search-bar.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-flight-list',
   templateUrl: './flight-list.component.html',
   styleUrls: ['./flight-list.component.scss'],
-   providers:[AppService]
+   providers:[SearchBarService]
 })
 export class FlightListComponent implements OnInit {
 
@@ -15,7 +16,7 @@ export class FlightListComponent implements OnInit {
   @Input() ondSearchPayload: any;
   @Input() segmentFlightSelectedFor: any;
 
-  constructor(private appService:AppService) { }
+  constructor(private searchBarService:SearchBarService, private router:Router) { }
 
   ngOnInit() {
 
@@ -23,24 +24,34 @@ export class FlightListComponent implements OnInit {
   }
 
   flightsSelected: Array<any> = [];
+
+
+
   callNextSegment(segmentIndex:any, flightIndex:any, cabinIndex:any){
-     var href = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.link.href;
-     this.appService.getSearchDataForNextSegment(href,this.ondSearchPayload)
+     var href = '';
+     if(this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.hasOwnProperty('link')){
+       href = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.link.href;
+     }
+
+     if(href!=''){
+    this.searchBarService.getSearchDataForNextSegment(href,this.ondSearchPayload)
     .subscribe((response)=>{
-      if(response!='No Offers'){console.log('response',response);
-        if(segmentIndex<=this.segmentFlightSelectedFor){
+      if(response!='No Offers'){
+        if(segmentIndex+1<this.journeyData.length){
           this.segmentFlightSelectedFor=segmentIndex;
           this.journeyData[segmentIndex].segmentData = response;
-          for(var i =0; i<this.ondSearchPayload.ondsearches.length;i++){
+          for(var i =segmentIndex; i<this.journeyData.length;i++){
             this.journeyData.pop();
           }
         }else{
           this.segmentFlightSelectedFor++;
-          this.journeyData.push({segmentData : response});
         }
-
+        this.journeyData.push({segmentData : response});
       }
      });
+   }else if(this.journeyData.length=this.ondSearchPayload.ondsearches.length){
+     console.log('selection complete');
+   }
   }
 
   sort(segmentIndex:any, sortParams:any){
