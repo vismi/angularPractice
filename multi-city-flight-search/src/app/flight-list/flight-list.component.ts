@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppService } from '../../app/app.service';
+import { SearchBarService } from '../../app/search-bar/search-bar.service';
 import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-flight-list',
   templateUrl: './flight-list.component.html',
   styleUrls: ['./flight-list.component.scss'],
-   providers:[AppService]
+   providers:[SearchBarService]
 })
 export class FlightListComponent implements OnInit {
 
@@ -16,7 +16,7 @@ export class FlightListComponent implements OnInit {
   @Input() ondSearchPayload: any;
   @Input() segmentFlightSelectedFor: any;
 
-  constructor(private appService:AppService, private router:Router) { }
+  constructor(private searchBarService:SearchBarService, private router:Router) { }
 
   ngOnInit() {
 
@@ -29,7 +29,7 @@ export class FlightListComponent implements OnInit {
 
   callNextSegment(segmentIndex:any, flightIndex:any, cabinIndex:any){
      var href = this.journeyData[segmentIndex].segmentData[flightIndex].availableCabinsForOption[cabinIndex].nextFlightSegment.link.href;
-     this.appService.getSearchDataForNextSegment(href,this.ondSearchPayload)
+     this.searchBarService.getSearchDataForNextSegment(href,this.ondSearchPayload)
     .subscribe((response)=>{
       if(response!='No Offers'){
         this.segmentFlightSelectedFor++;
