@@ -32,7 +32,7 @@
          <div class="input-group-prepend">
           <span class="input-group-text" id="">To</span>
         </div>
-        <input formControlName="destination"  name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" [ngClass]="{ 'is-invalid': submitted && this.userData.controls.origin.errors }" required="Required" [(ngModel)]="item.destination">
+        <input formControlName="destination"  name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" [ngClass]="{ 'is-invalid': submitted && this.userData.controls.destination.errors }" required="Required" [(ngModel)]="item.destination">
         <div *ngIf="submitted && this.userData.controls.destination.errors" class="invalid-feedback">
             <div *ngIf="this.userData.controls.destination.errors.required">Destination is required</div>
           </div>
@@ -41,7 +41,7 @@
       <div class="col-md-3">
         <div class="input-group-md date">
           <input formControlName="date" name="date{{segmentIndex}}" placeholder="Date" class="form-control" type="Date"  
-          [ngClass]="{ 'is-invalid': submitted && this.userData.controls.origin.errors }" required="Required" [(ngModel)]="item.date">
+          [ngClass]="{ 'is-invalid': submitted && this.userData.controls.date.errors }" required="Required" [(ngModel)]="item.date">
           <div *ngIf="submitted && this.userData.controls.date.errors" class="invalid-feedback">
             <div *ngIf="this.userData.controls.date.errors.required">Date is required</div>
           </div>
@@ -58,8 +58,8 @@
   <button class="btn btn-outline-danger col-md-2" (click)="addSegment()">Add a Flight</button>
 </div>
 <br>
-<div class="col-md-12 row searchFlight">
-  <button type="submit" class="btn btn-danger btn-md offset-md-10 col-md-2" (click)=getdata(item)>Search Flights</button>
+<div class="col-md-12 row form-group searchFlight" >
+  <button type="submit" class="btn btn-danger btn-md offset-md-10 col-md-2" [disabled]="userData.pristine || userData.invalid" (click)=getdata(item)>Search Flights</button>
 </div>
 </fieldset>
 </form>
