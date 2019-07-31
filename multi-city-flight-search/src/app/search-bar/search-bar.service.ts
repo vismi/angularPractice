@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http, Response, RequestOptions} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -14,7 +14,12 @@ export class SearchBarService {
 
     getSearchData(payload:any) {
       console.log(payload);
-  	return this.http.post("http://localhost:3003/badotcomadapter-paa/rs/v1/test;ondwanted=1;applicableoffers='khushboo'",payload)
+      let href="http://localhost:3003/badotcomadapter-paa/rs/v1/test;ondwanted=1;applicableoffers='khushboo'";
+      href="https://test123vismi.free.beeceptor.com";
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+let options = new RequestOptions({ headers?: headers });
+  	return this.http.post(href,payload,options)
   	.pipe(map((response: Response)=> {
       var responseJSON = response.json();
       if(responseJSON.message=='no offers for this route'){
