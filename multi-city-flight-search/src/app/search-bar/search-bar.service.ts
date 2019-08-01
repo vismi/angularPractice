@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http, Response, RequestOptions} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -13,23 +13,18 @@ export class SearchBarService {
  constructor(private http:Http) { }
 
     getSearchData(payload:any) {
-      console.log(payload);
-      let href="http://localhost:3003/badotcomadapter-paa/rs/v1/test;ondwanted=1;applicableoffers='khushboo'";
-      href="https://test123vismi.free.beeceptor.com";
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-let options = new RequestOptions({ headers?: headers });
+      let href = "http://caws08-e2e01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=1";
+      href = "http://localhost:3000/badotcomadapter-paa/rs/v1/test;ondwanted=1";
+let headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8',
+'Access-Control-Allow-Method':'*',
+'Access-Control-Allow-Headers':'*',
+'ba_client_applicationName' : 'test'});
+let options =  { headers: headers };
   	return this.http.post(href,payload,options)
   	.pipe(map((response: Response)=> {
-      var responseJSON = response.json();
-      if(responseJSON.message=='no offers for this route'){
-        return 'No Offers';
-      }else{
-        return responseJSON;
-      }
+        return response;
   	}));
   }
-
   getSearchDataForNextSegment(href:any, payload:any) {
   var re = /caws08-pint01.baplc.com/gi;
   href = href.replace(re, "localhost:3003");
@@ -42,5 +37,5 @@ let options = new RequestOptions({ headers?: headers });
       return responseJSON;
     }
   }));
-}
+  }
 }

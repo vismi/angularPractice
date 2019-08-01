@@ -14,7 +14,7 @@ export class SearchBarComponent implements OnInit {
 
 totalSegments = 1;
 segmentFlightSelectedFor = 0;
-ondSearchPayload: any = { 'ondsearches': []};
+ondSearchPayload: any = { 'ondSearches': []};
 journeyMatrix: Array<any> = [];
 showFlightList = false;
 response : any={};
@@ -35,9 +35,9 @@ journeyData : Array<any> =[];
         });
 
     this.journeyMatrix.push({
-    'origin':'',
-    'destination': '',
-    'date':moment().add(0, 'days').format('YYYY-MM-DD')
+    'originLocationCode':'',
+    'destinationLocationCode': '',
+    'departureDate':moment().add(0, 'days').format('YYYY-MM-DD')
   });
   }
 
@@ -55,9 +55,9 @@ addSegment(){
   var lastDestination = this.journeyMatrix[this.journeyMatrix.length-1].destination;
   var lastDate = this.journeyMatrix[this.journeyMatrix.length-1].date;
 if(this.totalSegments<6){  this.journeyMatrix.push({
-    'origin': lastDestination,
-    'destination': '',
-    'date':moment(lastDate).add(7, 'days').format('YYYY-MM-DD')
+    'originLocationCode': lastDestination,
+    'destinationLocationCode': '',
+    'departureDate':moment(lastDate).add(7, 'days').format('YYYY-MM-DD')
   });
   this.totalSegments++;}
 }
@@ -71,7 +71,7 @@ removeSegment(segmentIndex:any){
 
 getdata(data : any){
   this.journeyData =[];
-  this.ondSearchPayload.ondsearches = this.journeyMatrix;
+  this.ondSearchPayload.ondSearches = this.journeyMatrix;
  this.searchBarService.getSearchData(this.ondSearchPayload)
 .subscribe((response)=>{
 console.log('---',response);

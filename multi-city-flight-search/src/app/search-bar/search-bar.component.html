@@ -16,7 +16,7 @@
              <div class="input-group-prepend">
               <span class="input-group-text" id="">From</span>
             </div>
-            <input type="input" class="form-control" name="origin{{segmentIndex}}" placeholder="Origin" required="Required" [(ngModel)]="item.origin">
+            <input type="input" class="form-control" name="origin{{segmentIndex}}" placeholder="Origin" required="Required" [(ngModel)]="item.originLocationCode">
 
    <!--          <input type="input" class="form-control" formControlName="origin" name="origin{{segmentIndex}}" placeholder="Origin" [ngClass]="{ 'is-invalid': submitted && userData.controls['origin'].errors }" required="Required" [(ngModel)]="item.origin">
             <div *ngIf="submitted && userData.controls['origin'].errors" class="invalid-feedback">
@@ -28,7 +28,7 @@
            <div class="input-group-prepend">
             <span class="input-group-text" id="">To</span>
           </div>
-          <input name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" required="Required" [(ngModel)]="item.destination">
+          <input name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" required="Required" [(ngModel)]="item.destinationLocationCode">
 
   <!--         <input formControlName="destination"  name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" [ngClass]="{ 'is-invalid': submitted && userData.controls['destination'].errors }" required="Required" [(ngModel)]="item.destination">
           <div *ngIf="submitted && userData.controls['destination'].errors" class="invalid-feedback">
@@ -39,7 +39,7 @@
         <div class="col-md-3">
           <div class="input-group-md date">
             <input name="date{{segmentIndex}}" placeholder="Date" class="form-control" type="Date"
-             required="Required" [(ngModel)]="item.date">
+             required="Required" [(ngModel)]="item.departureDate">
       <!--       <input formControlName="date" name="date{{segmentIndex}}" placeholder="Date" class="form-control" type="Date"
             [ngClass]="{ 'is-invalid': submitted && userData.controls['date'].errors }" required="Required" [(ngModel)]="item.date">
             <div *ngIf="submitted && userData.controls['date'].errors" class="invalid-feedback">
