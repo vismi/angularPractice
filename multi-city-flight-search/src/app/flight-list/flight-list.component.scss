@@ -6,6 +6,12 @@
 	background-color:#DCDCDC;
 }
 
+mat-expansion-panel{
+	margin:5px;
+	.journey-detail{
+		margin:23px 0 0 0;
+	}
+}
 
 	h1{
 		color: #004486;
@@ -20,7 +26,11 @@ padding-top: 30px;
 	.filter-button {
 	background-color:#5F9EA0;
 	color: white;
-	margin-top:20px;
+	margin:0.5rem;
+}
+
+.card.main-container{
+	margiin:9px
 }
 	.flight-details{
 	display: flex;
