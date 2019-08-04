@@ -1,49 +1,62 @@
-<mat-expansion-panel [expanded] ="segmentIndex>=segmentFlightSelectedFor"  id="segment{{segmentIndex}}" *ngFor="let segment of journeyData; let segmentIndex = index">
-  <mat-expansion-panel-header class="filter-row">
-    <mat-panel-title>
-      <b>Flight {{segmentIndex+1}} </b>&nbsp;
-      <br>
-      <b>Choose Flight for {{ondSearchPayload.ondsearches[segmentIndex].origin}} to {{ondSearchPayload.ondsearches[segmentIndex].destination}}</b>
-      <b>Journey {{segmentIndex+1}} </b>
-    </mat-panel-title>
-    <mat-panel-description>
-      <b>Date: {{ondSearchPayload.ondsearches[segmentIndex].date}}</b>
-    </mat-panel-description>
-  </mat-expansion-panel-header>
+<div class="offset-md-1 col-md-10 flight-list-inner" >
+<h1 class="flight-List-Heading">Select Flights</h1>
+  <mat-accordion>
+    <mat-expansion-panel [expanded] ="segmentIndex>=segmentFlightSelectedFor"  id="segment{{segmentIndex}}" *ngFor="let segment of journeyData; let segmentIndex = index">
+      <mat-expansion-panel-header class="filter-row">
+        <mat-panel-title>
+          <b>Journey {{segmentIndex+1}} </b>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
 
-  <div class="row ">
-    <div class="col-md-12">
-    <button type="button" class="btn filter-button btn-md offset-md-5 col-md-3" name="button" (click)="sort(segmentIndex, 'duration')">Show Shortest Flights First</button>
-    <button type="button"  class="btn filter-button btn-md offset-md-1 col-md-3" name="button" (click)="sort(segmentIndex, 'departure')">Show Earliest Flights First</button>
-  </div>
-    <div class="journey-detail col-md-5">
-      Choose Flight for {{ondSearchPayload.ondSearches[segmentIndex].originLocationCode}} to {{ondSearchPayload.ondSearches[segmentIndex].destinationLocationCode}}
-      <br>
-      <b>Date: {{ondSearchPayload.ondSearches[segmentIndex].departureDate}}</b>
-    </div>
-    <button type="button" class="btn filter-button btn-md col-md-3" name="button" (click)="sort(segmentIndex, 'duration')">Show Shortest Flights First</button>
-    <button type="button"  class="btn filter-button btn-md col-md-3" name="button" (click)="sort(segmentIndex, 'departure')">Show Earliest Flights First</button>
+      <div class="row ">
+      	<div class="journey-detail col-md-5">
+          Choose Flight for {{ondSearchPayload.ondSearches[segmentIndex].originLocationCode}} to {{ondSearchPayload.ondSearches[segmentIndex].destinationLocationCode}}
+          <br>
+          <b>Date: {{ondSearchPayload.ondSearches[segmentIndex].departureDate}}</b>
+        </div>
+        <button type="button" class="btn filter-button btn-md col-md-3" name="button" (click)="sort(segmentIndex, 'duration')">Show Shortest Flights First</button>
+        <button type="button"  class="btn filter-button btn-md col-md-3" name="button" (click)="sort(segmentIndex, 'departure')">Show Earliest Flights First</button>
 
-  </div>
+      </div>
 <br>
 
-  <div class="card main-container" *ngFor="let flight of segment.segmentData; let flightIndex = index">
-    <div class="card-body">
-      <div class="flight-container row">
-        <div class="flight-details col-md-4">
-        <div class="flight-details col-md-6">
-          <div class="col-md-4">
-            <h4 class="airport">{{flight.localFlightSegments[0].departureAirport.code}}</h4>
-            <h6>{{flight.localFlightSegments[0].departureDateTime | date : 'shortTime'}}</h6>
-          </div>
+      <div class="card main-container" *ngFor="let flight of segment.segmentData; let flightIndex = index">
+        <div class="card-body">
+          <div class="flight-container row">
+            <div class="flight-details col-md-6">
+              <div class="col-md-4">
+                <h4 class="airport">{{flight.localFlightSegments[0].departureAirport.code}}</h4>
+                <h6>{{flight.localFlightSegments[0].departureDateTime | date : 'shortTime'}}</h6>
+              </div>
+              <div class="plane-img col-md-3">
+                <img src="../assets/black-plane.png">
+                <span class="duration">{{flight.localFlightSegments[0].duration | slice:2:7}}</span>
+              </div>
+              <div class="col-md-4">
+                <h4 class="airport">{{flight.localFlightSegments[0].arrivalAirport.code}}</h4>
+                <h6>{{flight.localFlightSegments[0].arrivalDateTime | date : 'shortTime'}}</h6>
+              </div>
 
-        </div>
-        <div class="col-md-8 cabin-container">
-        <div class="cabin-class" *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
-         <div class="card text-white bg-info mb-3" style="width: 11rem; max-height: 5rem;">
-        <div class="col-md-6 cabin-container">
-        <div class="cabin-class col-md-6" *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
-         <div class="card text-white bg-info">
-          <div class="card-header">
-          <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.cabinOptionKey}}</label>
+            </div>
+            <div class="col-md-6 cabin-container">
+            <div class="cabin-class col-md-6" *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
+             <div class="card text-white bg-info">
+              <div class="card-header">
+              <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.cabinOptionKey}}</label>
+              </div>
+              <div class="card-body">
+                <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.lowestJourneyPriceInCabin.amount}} {{cabin.lowestJourneyPriceInCabin.currency.code}}</label>
+                <a name ="seg+{{segmentIndex}}" id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="input" (click)="callNextSegment(segmentIndex, flightIndex, cabinIndex)">
+                  <img src="../assets/icons8-checked-24.png"></a>
+              </div>
+            </div>
+            </div>
           </div>
+          </div>
+        </div>
+      </div>
+
+  </mat-expansion-panel>
+
+</mat-accordion>
+</div>
