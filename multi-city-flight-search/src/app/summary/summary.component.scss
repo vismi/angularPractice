@@ -1,24 +1,25 @@
 .summary-container {
 
-.summary-body {
-	padding-left : 0;
-	padding-right: 0;
-
+margin:0;
+padding:0;
 	.card-header{
-		background-color: #e1e1e1;
+		background-color: #7faee1;
 
 	overflow: hidden;
 
 	h4{
 		text-align: center;
 		font-size: 1.875rem;
-
+ color:#fff;
 	line-height: 2.8125rem;
 	}
 	}
 
  .card-footer{
-background-color: #292929;
+background-color: #b73e3e;
+text-align: right;
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
 
 	h4{
 color: white;
@@ -29,15 +30,27 @@ font-weight: 400;
 letter-spacing: 0;
 	}
 	}
+
+.summary-body {
+	padding-left : 0;
+	padding-right: 0;
+
+
 	.card-body {
-	border-bottom: 1px solid grey;
-	margin: 10px;
+	    border-bottom: 1px solid #2a78cd;
+			box-shadow: 0.5px 1px 2px #2a78cd;
+	margin-top: 10px;
     padding: 10px;
+		border-radius: 1.5rem;
+		    height: 8rem;
+			
+		.flight-summary{
+			h4{
+				color:#3467a3
+			}
+		}
 	}
 
-	div.card-body:last-child {
-	border-bottom: none;
-	}
 
 	.plane-img{
 

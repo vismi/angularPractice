@@ -1,9 +1,10 @@
-<div class="row  summary-container">
-	<div class="card text-center summary-body  offset-md-2 col-md-8" >
-		<div class="card-header">
-			<h4>Flight Summary</h4>
-		</div>
-		<div class="card-body" *ngFor="let item of selectedJourneyItems">
+<div class="row  summary-container col-md-12">
+	<div class="card-header  offset-sm-1 col-sm-10">
+		<h4>Flight Summary</h4>
+	</div>
+	<div class="text-center summary-body  offset-sm-1 col-sm-10" >
+
+		<div class="card-body" *ngFor="let item of journeyItemSelection">
 			<div class="flight-summary row">
 				<div class="col-md-4">
 					<h4 class="airport">{{item.localFlightSegments.departureAirport.name}}</h4>
@@ -23,8 +24,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="card-footer">
-			<h4>Total Price : {{totalPrice}} GBP</h4>
-		</div>
+
+	</div>
+	<div class="card-footer offset-sm-1 col-sm-10">
+		<h4>Total Price : {{totalPrice}} GBP</h4>
 	</div>
 </div>
