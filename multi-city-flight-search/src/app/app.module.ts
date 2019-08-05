@@ -12,6 +12,7 @@ import {
   MatExpansionModule,
   MatButtonModule
 } from '@angular/material';
+import { FormatStringPipe } from './stringFormatPipe';
 
 
 import { FlightListComponent } from './flight-list/flight-list.component';
@@ -20,12 +21,14 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     FlightListComponent,
     SummaryComponent,
-    SearchBarComponent
+    SearchBarComponent,
+	FormatStringPipe
   ],
   imports: [
     BrowserModule,

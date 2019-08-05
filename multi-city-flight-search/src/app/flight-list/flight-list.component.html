@@ -4,20 +4,19 @@
     <mat-expansion-panel [expanded] ="segmentIndex>=segmentFlightSelectedFor"  id="segment{{segmentIndex}}" *ngFor="let segment of journeyData; let segmentIndex = index">
       <mat-expansion-panel-header class="filter-row">
         <mat-panel-title>
-          <b>Flight {{segmentIndex+1}} </b>&nbsp;
-          <br>
-          <b>Choose Flight for {{ondSearchPayload.ondsearches[segmentIndex].origin}} to {{ondSearchPayload.ondsearches[segmentIndex].destination}}</b>
+          <b>Journey {{segmentIndex+1}} </b>
         </mat-panel-title>
-        <mat-panel-description>
-          <b>Date: {{ondSearchPayload.ondsearches[segmentIndex].date}}</b>
-        </mat-panel-description>
       </mat-expansion-panel-header>
 
-      <div class="row ">
-      	<div class="col-md-12">
-        <button type="button" class="btn filter-button btn-md offset-md-5 col-md-3" name="button" (click)="sort(segmentIndex, 'duration')">Show Shortest Flights First</button>
-        <button type="button"  class="btn filter-button btn-md offset-md-1 col-md-3" name="button" (click)="sort(segmentIndex, 'departure')">Show Earliest Flights First</button>
-      </div>
+      <div class="row flight-list-detail-header">
+      	<div class="journey-detail col-md-5">
+          Choose Flight for {{ondSearchPayload.ondSearches[segmentIndex].originLocationCode}} to {{ondSearchPayload.ondSearches[segmentIndex].destinationLocationCode}}
+          <br>
+          <b>Date: {{ondSearchPayload.ondSearches[segmentIndex].departureDate}}</b>
+        </div>
+        <button type="button" class="btn filter-button btn-md col-md-3" name="button" (click)="sort(segmentIndex, 'duration')">Show Shortest Flights First</button>
+        <button type="button"  class="btn filter-button btn-md col-md-3" name="button" (click)="sort(segmentIndex, 'departure')">Show Earliest Flights First</button>
+
       </div>
 <br>
 
@@ -40,10 +39,10 @@
 
             </div>
             <div class="col-md-8 cabin-container">
-            <div class="cabin-class" *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
-             <div class="card text-white bg-info mb-3" style="width: 11rem; max-height: 5rem;">
+            <div class="cabin-class col-md-4" *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
+             <div class="card text-white bg-info">
               <div class="card-header">
-              <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.cabinOptionKey}}</label>
+              <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.dominantCabin}}</label>
               </div>
               <div class="card-body">
                 <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.lowestJourneyPriceInCabin.amount}} {{cabin.lowestJourneyPriceInCabin.currency.code}}</label>

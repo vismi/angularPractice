@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SearchBarService } from '../search-bar/search-bar.service';
 import * as moment from 'moment';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
-
+const Swal = require('sweetalert2');
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
@@ -19,7 +20,7 @@ journeyMatrix: Array<any> = [];
 showFlightList = false;
 response : any={};
 flightList : any =[];
-ondsearches : any;
+ondSearches : any;
 journeyData : Array<any> =[];
  userData: FormGroup;
     submitted = false;
@@ -29,9 +30,9 @@ journeyData : Array<any> =[];
   ngOnInit() {
 
   this.userData = this.formBuilder.group({
-            origin: ['',[Validators.required , Validators.minLength(3)]],
-            destination: ['', [Validators.required , Validators.minLength(3)]],
-            date: ['', Validators.required]
+            originLocationCode: ['',[Validators.required , Validators.minLength(3)]],
+            destinationLocationCode: ['', [Validators.required , Validators.minLength(3)]],
+            departureDate: ['', Validators.required]
         });
 
     this.journeyMatrix.push({
@@ -52,8 +53,9 @@ journeyData : Array<any> =[];
 
 
 addSegment(){
-  var lastDestination = this.journeyMatrix[this.journeyMatrix.length-1].destination;
-  var lastDate = this.journeyMatrix[this.journeyMatrix.length-1].date;
+  var lastDestination = this.journeyMatrix[this.journeyMatrix.length-1].destinationLocationCode;
+  var lastDate = this.journeyMatrix[this.journeyMatrix.length-1].departureDate;
+
 if(this.totalSegments<6){  this.journeyMatrix.push({
     'originLocationCode': lastDestination,
     'destinationLocationCode': '',
@@ -72,16 +74,35 @@ removeSegment(segmentIndex:any){
 getdata(data : any){
   this.journeyData =[];
   this.ondSearchPayload.ondSearches = this.journeyMatrix;
- this.searchBarService.getSearchData(this.ondSearchPayload)
-.subscribe((response)=>{
-console.log('---',response);
-  if(response!='No Offers'){
+
+
+  
+  this.searchBarService.deleteCache()
+.subscribe((resp)=>{
+  this.searchBarService.getSearchData(this.ondSearchPayload)
+.subscribe(
+	data =>{
+		var response=data;
+
     this.showFlightList = true;
     this.journeyData.push({segmentData : response});
-    let flightListElement = document.getElementById('flight-list-outer');
-    console.log('flightListElement',flightListElement);
-    flightListElement.scrollIntoView();
-  }
+    document.getElementById('flight-list-outer').scrollIntoView();
+	Swal.fire({
+  title: 'Error!',
+  text: 'Do you want to continue',
+  type: 'error',
+  confirmButtonText: 'Cool'
+});
+  
+ },
+	error=>{
+  console.log('error',error);
+ }
+	);
  });
+ 
+ 
+ 
+ 
 }
 }

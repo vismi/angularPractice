@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, RequestOptions} from '@angular/http';
+import {Http, Response,RequestOptions, Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient , HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -10,32 +10,56 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SearchBarService {
 
- constructor(private http:Http) { }
+ constructor(private http:HttpClient) { }
 
+ 
+ 
     getSearchData(payload:any) {
-      let href = "http://caws08-e2e01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=1";
-      href = "http://localhost:3000/badotcomadapter-paa/rs/v1/test;ondwanted=1";
-let headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8',
-'Access-Control-Allow-Method':'*',
-'Access-Control-Allow-Headers':'*',
-'ba_client_applicationName' : 'test'});
+		
+	let headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8',
+									'Access-Control-Allow-Method':'*',
+									'Access-Control-Allow-Headers':'*',
+									'ba_client_applicationName' : 'test'});
 let options =  { headers: headers };
-  	return this.http.post(href,payload,options)
+
+	let url = "http://caws08-e2e01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=1";
+
+
+
+  	return this.http.post(url,JSON.stringify(payload),options)
   	.pipe(map((response: Response)=> {
-        return response;
+
+			return response;
+		
   	}));
   }
+
   getSearchDataForNextSegment(href:any, payload:any) {
-  var re = /caws08-pint01.baplc.com/gi;
-  href = href.replace(re, "localhost:3003");
-  return this.http.post(href,payload)
+  	let url = "http://caws08-e2e01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=1";
+	let headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8',
+									'Access-Control-Allow-Method':'*',
+									'Access-Control-Allow-Headers':'*',
+									'ba_client_applicationName' : 'test'});
+let options =  { headers: headers };
+
+  return this.http.post(href,JSON.stringify(payload),options)
   .pipe(map((response: Response)=> {
-    var responseJSON = response.json();
-    if(responseJSON.message=='no offers for this route'){
-      return 'No Offers';
-    }else{
-      return responseJSON;
-    }
+      return response;
   }));
-  }
+}
+
+  deleteCache() {
+  	let url = "http://caws08-e2e01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=1";
+	let headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8',
+									'Access-Control-Allow-Method':'*',
+									'Access-Control-Allow-Headers':'*',
+									'ba_client_applicationName' : 'test'});
+let options =  { headers: headers };
+	
+  return this.http.delete(url,options)
+  .pipe(map((response: Response)=> {
+	  console.log('del cache');
+      return response;
+  }));
+}
 }
