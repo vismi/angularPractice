@@ -1,70 +1,84 @@
 .summary-container {
 
-margin:0;
-padding:0;
-	.card-header{
-		background-color: #7faee1;
+  margin: 0;
+  padding: 0;
+  .card-header {
+    background-color: #7faee1;
 
-	overflow: hidden;
+    overflow: hidden;
 
-	h4{
-		text-align: center;
-		font-size: 1.875rem;
- color:#fff;
-	line-height: 2.8125rem;
-	}
-	}
+    h4 {
+      text-align: center;
+      font-size: 1.875rem;
+      color: #fff;
+      line-height: 2.8125rem;
+    }
+  }
 
- .card-footer{
-background-color: #b73e3e;
-text-align: right;
+  .card-footer {
+    background-color: #b73e3e;
+    text-align: right;
     margin-top: 0.5rem;
     padding-top: 1.5rem;
 
-	h4{
-color: white;
-line-height: 24px;
+    h4 {
+      color: white;
+      line-height: 24px;
 
-font-weight: 400;
+      font-weight: 400;
 
-letter-spacing: 0;
-	}
-	}
+      letter-spacing: 0;
+    }
+  }
 
-.summary-body {
-	padding-left : 0;
-	padding-right: 0;
+  .summary-body {
+    padding-left: 0;
+    padding-right: 0;
 
+    .card-body {
+      border-bottom: 1px solid #2a78cd;
+      box-shadow: 0.5px 1px 2px #2a78cd;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 1.5rem;
+      height: 9rem;
 
-	.card-body {
-	    border-bottom: 1px solid #2a78cd;
-			box-shadow: 0.5px 1px 2px #2a78cd;
-	margin-top: 10px;
-    padding: 10px;
-		border-radius: 1.5rem;
-		    height: 8rem;
-			
-		.flight-summary{
-			h4{
-				color:#3467a3
-			}
-		}
-	}
+      .flight-summary {
 
+        h4 {
+          color: #3467a3
+        }
 
-	.plane-img{
+        .departure-information{
+          width: 36%;
+        }
+        .duration-information{
+          width: 32%;
+          padding-left: 0;
+        }
+        .arrival-information {
+          width: 30%;
+        }
+      }
+    }
 
-padding-right:0;
-display: flex;
-flex-direction: column;
-vertical-align: middle;
-align-items: center;
+    .plane-img {
 
-img {
-width:12%;
-}
+      padding-right: 0;
+      display: flex;
+      flex-direction: column;
+      vertical-align: middle;
+      align-items: center;
 
-}
-}
+      img {
+        width: 22%;
+      }
+      @media (min-width: 640px) {
+        img {
+          width: 12%;
+        }
+      }
+    }
+  }
 
 }

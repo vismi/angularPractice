@@ -6,18 +6,18 @@
 
 		<div class="card-body" *ngFor="let item of journeyItemSelection">
 			<div class="flight-summary row">
-				<div class="col-md-4">
+				<div class="col-md-4 departure-information">
 					<h4 class="airport">{{item.localFlightSegments.departureAirport.name}}</h4>
 					<h5>{{item.localFlightSegments.departureDateTime | date : 'shortTime'}}</h5>
 					<span>Terminal {{item.localFlightSegments.departureAirport.terminal}}</span>
 				</div>
-				<div class="plane-img col-md-4">
+				<div class="plane-img col-md-4 duration-information">
 					<img src="../assets/black-plane.png">
 					<span class="duration">{{item.localFlightSegments.duration | slice:2:7}}</span>
 					<span class="carrierName">{{item.localFlightSegments.marketingCarrier.carrierName}}</span>
 					<span class="flightNo">{{item.localFlightSegments.marketingCarrier.carrierCode}} - {{item.localFlightSegments.marketingCarrier.flightNumber}}</span>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 arrival-information">
 					<h4 class="airport">{{item.localFlightSegments.arrivalAirport.name}}</h4>
 					<h5>{{item.localFlightSegments.arrivalDateTime | date : 'shortTime'}}</h5>
 					<span>Terminal {{item.localFlightSegments.arrivalAirport.terminal}}</span>
