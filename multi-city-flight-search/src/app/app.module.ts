@@ -13,6 +13,7 @@ import {
   MatExpansionModule,
   MatButtonModule
 } from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormatStringPipe } from './stringFormatPipe';
 
 
@@ -37,6 +38,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     BrowserAnimationsModule,
     MatExpansionModule,
     MatButtonModule,
+    NgbModule,
     MDBBootstrapModule.forRoot(),
     BsDatepickerModule.forRoot()
   ],

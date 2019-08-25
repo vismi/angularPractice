@@ -12,7 +12,22 @@ export class SearchBarService {
 
  constructor(private http:HttpClient) { }
 
+ getTypeAheadData(searchString: string){
+   let headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8',
+                   'Access-Control-Allow-Method':'*',
+                   'Access-Control-Allow-Headers':'*',
+                   'ba_client_applicationName' : 'test'});
+  let options =  { headers: headers };
+   let url = "https://www.britishairways.com/api/sc4/csdm-plm/rs/v1/productlocations;searchText="+searchString+"?locale=en_GB"
+   
+   return this.http.get(url,options)
+   .pipe(map((response: Response)=> {
 
+
+     return response;
+
+   }));
+ }
 
     getSearchData(payload:any) {
 
