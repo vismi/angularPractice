@@ -24,6 +24,7 @@ export class FlightListComponent implements OnInit {
   ngOnInit() {
     this.selectedJourneyItems = [];
 
+
   }
 
   flightsSelected: any = [];

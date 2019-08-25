@@ -6,6 +6,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs/Rx';
 
 
+<<<<<<< Updated upstream
+=======
+//const Swal = require('sweetalert2');
+>>>>>>> Stashed changes
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
@@ -47,10 +51,18 @@ export class SearchBarComponent implements OnInit {
     });
 
     this.journeyMatrix.push({
+<<<<<<< Updated upstream
       'originLocationCode': '',
       'destinationLocationCode': '',
       'departureDate': moment().add(0, 'days').format('YYYY-MM-DD')
     });
+=======
+    'originLocationCode':'',
+    'destinationLocationCode': '',
+    'departureDate':moment().add(0, 'days').format('YYYY-MM-DD')
+  });
+
+>>>>>>> Stashed changes
   }
 
 
@@ -84,6 +96,7 @@ export class SearchBarComponent implements OnInit {
     }
   }
 
+<<<<<<< Updated upstream
   getdata(data: any) {
     this.showLoadingImg = true;
     this.journeyData = [];
@@ -117,4 +130,40 @@ console.log('hey',this.ondSearchPayload.ondSearches);
           );
       });
   }
+=======
+getdata(data : any){
+  this.journeyData =[];
+  this.ondSearchPayload.ondSearches = this.journeyMatrix;
+
+
+
+  this.searchBarService.deleteCache()
+.subscribe((resp)=>{
+  this.searchBarService.getSearchData(this.ondSearchPayload)
+.subscribe(
+	data =>{
+		var response=data;
+
+    this.showFlightList = true;
+    this.journeyData.push({segmentData : response});
+    document.getElementById('flight-list-outer').scrollIntoView();
+	Swal.fire({
+  title: 'Error!',
+  text: 'Do you want to continue',
+  type: 'error',
+  confirmButtonText: 'Cool'
+});
+
+ },
+	error=>{
+  console.log('error',error);
+ }
+	);
+ });
+
+
+
+
+}
+>>>>>>> Stashed changes
 }

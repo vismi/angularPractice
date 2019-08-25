@@ -9,10 +9,19 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
 
+<<<<<<< Updated upstream
       <div class="row flight-list-detail-header">
+<<<<<<< Updated upstream
         <div class="journey-detail col-md-5">
           Choose Flight for {{ondSearchPayload.ondSearches[segmentIndex].originLocationCode}} to
           {{ondSearchPayload.ondSearches[segmentIndex].destinationLocationCode}}
+=======
+=======
+      <div class="row ">
+>>>>>>> Stashed changes
+      	<div class="journey-detail col-md-5">
+          Choose Flight for {{ondSearchPayload.ondSearches[segmentIndex].originLocationCode}} to {{ondSearchPayload.ondSearches[segmentIndex].destinationLocationCode}}
+>>>>>>> Stashed changes
           <br>
           <b>Date: {{ondSearchPayload.ondSearches[segmentIndex].departureDate}}</b>
         </div>
@@ -29,7 +38,7 @@
       <div class="card main-container" *ngFor="let flight of segment.segmentData; let flightIndex = index">
         <div class="card-body">
           <div class="flight-container row">
-            <div class="flight-details col-md-4">
+            <div class="flight-details col-md-6">
               <div class="col-md-4">
                 <h4 class="airport">{{flight.localFlightSegments[0].departureAirport.code}}</h4>
                 <h6>{{flight.localFlightSegments[0].departureDateTime | date : 'shortTime'}}</h6>
@@ -44,7 +53,9 @@
               </div>
 
             </div>
+<<<<<<< Updated upstream
             <div class="col-md-8 cabin-container">
+<<<<<<< Updated upstream
               <div class="cabin-class col-md-4"
                    *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
                 <div class="card text-white bg-info">
@@ -59,6 +70,21 @@
                       <img src="../assets/icons8-checked-24.png"></a>
                   </div>
                 </div>
+=======
+            <div class="cabin-class col-md-4" *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
+=======
+            <div class="col-md-6 cabin-container">
+            <div class="cabin-class col-md-6" *ngFor="let cabin of flight.availableCabinsForOption ; let cabinIndex = index">
+>>>>>>> Stashed changes
+             <div class="card text-white bg-info">
+              <div class="card-header">
+              <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.dominantCabin}}</label>
+              </div>
+              <div class="card-body">
+                <label for ="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}">{{cabin.lowestJourneyPriceInCabin.amount}} {{cabin.lowestJourneyPriceInCabin.currency.code}}</label>
+                <a name ="seg+{{segmentIndex}}" id="seg+{{segmentIndex}}+flight+{{flightIndex}}+cabin+{{cabinIndex}}" type="input" (click)="callNextSegment(segmentIndex, flightIndex, cabinIndex)">
+                  <img src="../assets/icons8-checked-24.png"></a>
+>>>>>>> Stashed changes
               </div>
             </div>
           </div>

@@ -12,10 +12,10 @@ export class SearchBarService {
 
  constructor(private http:HttpClient) { }
 
- 
- 
+
+
     getSearchData(payload:any) {
-		
+
 	let headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8',
 									'Access-Control-Allow-Method':'*',
 									'Access-Control-Allow-Headers':'*',
@@ -23,19 +23,19 @@ export class SearchBarService {
 let options =  { headers: headers };
 
 	let url = "http://caws08-e2e01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=1";
-
+url = "http://localhost:3003/badotcomadapter-paa/rs/v1/test;ondwanted=1;applicableoffers=vismiat";
 
 
   	return this.http.post(url,JSON.stringify(payload),options)
   	.pipe(map((response: Response)=> {
 
 			return response;
-		
+
   	}));
   }
 
   getSearchDataForNextSegment(href:any, payload:any) {
-  	let url = "http://caws08-e2e01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=1";
+  	href = "http://localhost:3003/badotcomadapter-paa/rs/v1/test;ondwanted=1;applicableoffers=vismiat";
 	let headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8',
 									'Access-Control-Allow-Method':'*',
 									'Access-Control-Allow-Headers':'*',
@@ -55,7 +55,7 @@ let options =  { headers: headers };
 									'Access-Control-Allow-Headers':'*',
 									'ba_client_applicationName' : 'test'});
 let options =  { headers: headers };
-	
+
   return this.http.delete(url,options)
   .pipe(map((response: Response)=> {
 	  console.log('del cache');

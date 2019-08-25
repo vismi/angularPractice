@@ -17,7 +17,7 @@ export class SummaryComponent implements OnInit {
 	  console.log(this.journeyItemSelection);
       this.totalPrice = Math.round( this.journeyItemSelection.reduce((a, b) => a + b.cabin.lowestJourneyPriceInCabin.amount,0) * 100 ) / 1000;
       console.log(this.totalPrice);
-
+ 
     }
   }
 
