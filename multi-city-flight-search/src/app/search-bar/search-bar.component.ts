@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SearchBarService} from '../search-bar/search-bar.service';
 import * as moment from 'moment';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import Swal from 'sweetalert2';
+//import Swal from 'sweetalert2';
 import {Observable} from 'rxjs/Rx';
 
 
@@ -27,8 +27,15 @@ export class SearchBarComponent implements OnInit {
   userData: FormGroup;
   ticks: any;
   submitted = false;
+  minDate: Date;
+  maxDate: Date;
 
   constructor(private searchBarService: SearchBarService, private formBuilder: FormBuilder) {
+    this.minDate = new Date();
+    this.maxDate = new Date();
+    this.minDate.setDate(this.minDate.getDate() );
+    this.maxDate.setDate(this.maxDate.getDate() + 360);
+
   }
 
   ngOnInit() {
@@ -81,7 +88,7 @@ export class SearchBarComponent implements OnInit {
     this.showLoadingImg = true;
     this.journeyData = [];
     this.ondSearchPayload.ondSearches = this.journeyMatrix;
-
+console.log('hey',this.ondSearchPayload.ondSearches);
 
     let timer = Observable.timer(200000, 1000);
     this.searchBarService.deleteCache()
