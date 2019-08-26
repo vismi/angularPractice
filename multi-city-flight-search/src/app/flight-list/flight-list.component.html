@@ -15,7 +15,7 @@
         Choose Flight for {{ondSearchPayload.ondSearches[segmentIndex].originLocationCode}} to
         {{ondSearchPayload.ondSearches[segmentIndex].destinationLocationCode}}
         <br>
-        <b>Date: {{ondSearchPayload.ondSearches[segmentIndex].departureDate}}</b>
+        <b>Date: {{ondSearchPayload.ondSearches[segmentIndex].departureDate | date: 'fullDate'}}</b>
       </div>
       <button type="button" class="btn filter-button btn-md col-md-3" name="button"
       (click)="sort(segmentIndex, 'duration')">Show Shortest Flights First
