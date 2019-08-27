@@ -32,58 +32,7 @@ export class SearchBarComponent implements OnInit {
   minDate: Date;
   maxDate: Date;
   typeAheadVar: any=[];
-  states: string[] = [
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
-    'Delaware',
-    'Florida',
-    'Georgia',
-    'Hawaii',
-    'Idaho',
-    'Illinois',
-    'Indiana',
-    'Iowa',
-    'Kansas',
-    'Kentucky',
-    'Louisiana',
-    'Maine',
-    'Maryland',
-    'Massachusetts',
-    'Michigan',
-    'Minnesota',
-    'Mississippi',
-    'Missouri',
-    'Montana',
-    'Nebraska',
-    'Nevada',
-    'New Hampshire',
-    'New Jersey',
-    'New Mexico',
-    'New York',
-    'North Dakota',
-    'North Carolina',
-    'Ohio',
-    'Oklahoma',
-    'Oregon',
-    'Pennsylvania',
-    'Rhode Island',
-    'South Carolina',
-    'South Dakota',
-    'Tennessee',
-    'Texas',
-    'Utah',
-    'Vermont',
-    'Virginia',
-    'Washington',
-    'West Virginia',
-    'Wisconsin',
-    'Wyoming'
-  ];
+
   constructor(private searchBarService: SearchBarService, private formBuilder: FormBuilder) {
     this.minDate = new Date();
     this.maxDate = new Date();
@@ -93,7 +42,6 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit() {
 
-    this.typeAheadVar.push({'cityDetails': {'cityDetails':'LHR'}});
     this.userData = this.formBuilder.group({
       originLocationCode: ['', [Validators.required, Validators.minLength(3)]],
       destinationLocationCode: ['', [Validators.required, Validators.minLength(3)]],
@@ -117,41 +65,24 @@ export class SearchBarComponent implements OnInit {
   }
 
   onSearchChange(searchValue: any): void {
-    console.log('searchValue',searchValue);
   if(searchValue.length>2){
     var typeAheadResult = {};
     this.searchBarService.getTypeAheadData(searchValue)
       .subscribe(
         data => {
-
-          this.typeAheadVar = data.locations;
-          console.log('this.typeAheadVar', this.typeAheadVar);
+          if(data.hasOwnProperty("locations")){
+            this.typeAheadVar = data.locations;
+            var resultArray = this.typeAheadVar.map((location)=>{
+              return location.cityDetails.name+', ('+location.airportDetails.iataCode+')';
+            })
+            this.typeAheadVar = resultArray;
+          }
         }
       );
 
   }
   }
 
-    typeAheadResult = {"locations":[{"locationType":"AIRPORT","airportDetails":{"iataCode":"CEK","name":"Chelyabinsk"},"cityDetails":{"code":"CEK","name":"Chelyabinsk"},"countryDetails":{"code":"RU","name":"Russia"},"availableProducts":{"flightOnly":true,"flightAndHotel":false,"flightAndCar":false,"hotelOnly":false,"carOnly":false}},{"locationType":"AIRPORT","airportDetails":{"iataCode":"CTU","name":"Chengdu"},"cityDetails":{"code":"CTU","name":"Chengdu"},"countryDetails":{"code":"CN","name":"China"},"availableProducts":{"flightOnly":true,"flightAndHotel":false,"flightAndCar":false,"hotelOnly":false,"carOnly":false}},{"locationType":"AIRPORT","airportDetails":{"iataCode":"MAA","name":"Chennai","bahID":"AIR_MAA_IN"},"cityDetails":{"code":"MAA","name":"Chennai","bahID":"CITY_MAA_IN"},"countryDetails":{"code":"IN","name":"India"},"availableProducts":{"flightOnly":true,"flightAndHotel":true,"flightAndCar":true,"hotelOnly":true,"carOnly":true}},{"locationType":"AIRPORT","airportDetails":{"iataCode":"CTM","name":"Chetumal"},"cityDetails":{"code":"CTM","name":"Chetumal"},"countryDetails":{"code":"MX","name":"Mexico"},"availableProducts":{"flightOnly":true,"flightAndHotel":false,"flightAndCar":false,"hotelOnly":false,"carOnly":false}}]};
-
-
-      search = (text$: Observable<string>) =>
-      text$.pipe(
-        debounceTime(300),
-        distinctUntilChanged(),
-        switchMap(term =>
-          this.searchBarService.getTypeAheadData(term)
-        )
-      )
-
-      resultFormatBandListValue(value: any) {
-      return 'vismita';//value.name;
-    }
-    inputFormatBandListValue(value: any)   {
-  if(value.name)
-    return  'vismita2'; //value.name
-  return 'vismita3';//value;
-}
 
   addSegment() {
     var lastDestination = this.journeyMatrix[this.journeyMatrix.length - 1].destinationLocationCode;
@@ -177,9 +108,15 @@ export class SearchBarComponent implements OnInit {
   getdata(data: any) {
     this.showLoadingImg = true;
     this.journeyData = [];
-    this.ondSearchPayload.ondSearches = this.journeyMatrix;
 
+    this.ondSearchPayload.ondSearches = this.journeyMatrix.map((journeyItem)=>{
+      return {'departureDate':journeyItem.departureDate,
+      'destinationLocationCode':journeyItem.destinationLocationCode.split('(')[1].split(')')[0],
+      'originLocationCode':journeyItem.originLocationCode.split('(')[1].split(')')[0]
+    };
+    });
 
+console.log('  this.ondSearchPayload',   this.ondSearchPayload);
     let timer = Observable.timer(200000, 1000);
     this.searchBarService.deleteCache()
       .subscribe((resp) => {

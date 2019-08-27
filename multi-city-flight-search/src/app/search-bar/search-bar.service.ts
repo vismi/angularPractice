@@ -18,8 +18,8 @@ export class SearchBarService {
                    'Access-Control-Allow-Headers':'*',
                    'ba_client_applicationName' : 'test'});
   let options =  { headers: headers };
-   let url = "https://www.britishairways.com/api/sc4/csdm-plm/rs/v1/productlocations;searchText="+searchString+"?locale=en_GB"
-  url = "http://caws07-e2e01.baplc.com/csdm-plm/rs/v1/productlocations;searchText="+searchString+"?locale=en_GB";
+   let url = "http://caws07-e2e01.baplc.com/csdm-plm/rs/v1/productlocations;searchText="+searchString+"?locale=en_GB";
+   url = "http://localhost:3003/csdm-plm/rs/v1/productlocations;searchText="+searchString;
    return this.http.get(url,options)
    .pipe(map((response: Response)=> {
      return response;
@@ -27,7 +27,7 @@ export class SearchBarService {
  }
 
     getSearchData(payload:any) {
-
+console.log('payload', payload);
 	let headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8',
 									'Access-Control-Allow-Method':'*',
 									'Access-Control-Allow-Headers':'*',

@@ -2345,4 +2345,19 @@ if(req.params.ondwanted==1){
 
 });
 
+router.get('/csdm-plm/rs/v1/productlocations;searchText=:searchText', function(req, res) {
+if(req.params.searchText=='jfk'){
+  res.json({"locations":[{"locationType":"AIRPORT","airportDetails":{"iataCode":"JFK","name":"John F Kennedy (NY)","bahID":"AIR_JFK_NY_US"},"cityDetails":{"code":"NYC","name":"New York","bahID":"CIT_US_NY_NewY"},"stateDetails":{"code":"NJ","name":"New Jersey"},"countryDetails":{"code":"US","name":"USA"},"availableProducts":{"flightOnly":true,"flightAndHotel":true,"flightAndCar":true,"hotelOnly":true,"carOnly":true}}]});
+}
+else if(req.params.searchText=='che'){
+  res.json({"locations":[{"locationType":"AIRPORT","airportDetails":{"iataCode":"CEK","name":"Chelyabinsk"},"cityDetails":{"code":"CEK","name":"Chelyabinsk"},"countryDetails":{"code":"RU","name":"Russia"},"availableProducts":{"flightOnly":true,"flightAndHotel":false,"flightAndCar":false,"hotelOnly":false,"carOnly":false}},{"locationType":"AIRPORT","airportDetails":{"iataCode":"CTU","name":"Chengdu"},"cityDetails":{"code":"CTU","name":"Chengdu"},"countryDetails":{"code":"CN","name":"China"},"availableProducts":{"flightOnly":true,"flightAndHotel":false,"flightAndCar":false,"hotelOnly":false,"carOnly":false}},{"locationType":"AIRPORT","airportDetails":{"iataCode":"MAA","name":"Chennai","bahID":"AIR_MAA_IN"},"cityDetails":{"code":"MAA","name":"Chennai","bahID":"CITY_MAA_IN"},"countryDetails":{"code":"IN","name":"India"},"availableProducts":{"flightOnly":true,"flightAndHotel":true,"flightAndCar":true,"hotelOnly":true,"carOnly":true}},{"locationType":"AIRPORT","airportDetails":{"iataCode":"CTM","name":"Chetumal"},"cityDetails":{"code":"CTM","name":"Chetumal"},"countryDetails":{"code":"MX","name":"Mexico"},"availableProducts":{"flightOnly":true,"flightAndHotel":false,"flightAndCar":false,"hotelOnly":false,"carOnly":false}}]});
+}
+else if(req.params.searchText=='del'){
+  res.json({"locations":[{"locationType":"AIRPORT","airportDetails":{"iataCode":"DEL","name":"Indira Gandhi Intl","bahID":"AIR_DEL_IN"},"cityDetails":{"code":"DEL","name":"New Delhi","bahID":"CITY_DEL_IN"},"countryDetails":{"code":"IN","name":"India"},"availableProducts":{"flightOnly":true,"flightAndHotel":true,"flightAndCar":true,"hotelOnly":true,"carOnly":true}},{"locationType":"AIRPORT","airportDetails":{"iataCode":"CME","name":"Cuidad Del Carmen"},"cityDetails":{"code":"CME","name":"CIUDAD DEL CARMEN"},"countryDetails":{"code":"MX","name":"Mexico"},"availableProducts":{"flightOnly":true,"flightAndHotel":false,"flightAndCar":false,"hotelOnly":false,"carOnly":false}},{"locationType":"AIRPORT","airportDetails":{"iataCode":"SJD","name":"San Jose Del Cabo"},"cityDetails":{"code":"SJD","name":"San Jose Del Cabo"},"countryDetails":{"code":"MX","name":"Mexico"},"availableProducts":{"flightOnly":true,"flightAndHotel":false,"flightAndCar":false,"hotelOnly":false,"carOnly":false}}]});
+}
+
+
+
+});
+
 module.exports = router
