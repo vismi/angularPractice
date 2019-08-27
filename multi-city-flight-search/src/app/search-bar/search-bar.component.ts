@@ -66,16 +66,15 @@ export class SearchBarComponent implements OnInit {
 
   onSearchChange(searchValue: any): void {
   if(searchValue.length>2){
-    var typeAheadResult = {};
+    console.log('searchValue',searchValue);
     this.searchBarService.getTypeAheadData(searchValue)
       .subscribe(
         data => {
           if(data.hasOwnProperty("locations")){
-            this.typeAheadVar = data.locations;
-            var resultArray = this.typeAheadVar.map((location)=>{
+            var updatedTypeAheadVar = data['locations'].map((location)=>{
               return location.cityDetails.name+', ('+location.airportDetails.iataCode+')';
-            })
-            this.typeAheadVar = resultArray;
+            });
+            this.typeAheadVar = updatedTypeAheadVar;
           }
         }
       );
