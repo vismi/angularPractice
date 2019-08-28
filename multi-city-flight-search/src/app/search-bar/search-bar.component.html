@@ -23,8 +23,7 @@
                 placeholder="Origin"
                 required="Required"
                 [(ngModel)]="item.originLocationCode"
-                       [typeahead]="typeAheadVar"
-                       (ngModelChange)="onSearchChange($event)">
+                       [ngbTypeahead]="search">
 
 								<!--          <input type="input" class="form-control" formControlName="origin" name="origin{{segmentIndex}}" placeholder="Origin" [ngClass]="{ 'is-invalid': submitted && userData.controls['origin'].errors }" required="Required" [(ngModel)]="item.origin">
 												 <div *ngIf="submitted && userData.controls['origin'].errors" class="invalid-feedback">
@@ -42,7 +41,8 @@
                 class="form-control"
                 type="input"
                        required="Required"
-                       [(ngModel)]="item.destinationLocationCode">
+                       [(ngModel)]="item.destinationLocationCode"
+                       [ngbTypeahead]="search">
 
 								<!--         <input formControlName="destination"  name="destination{{segmentIndex}}" placeholder="Destination" class="form-control" type="input" [ngClass]="{ 'is-invalid': submitted && userData.controls['destination'].errors }" required="Required" [(ngModel)]="item.destination">
 												<div *ngIf="submitted && userData.controls['destination'].errors" class="invalid-feedback">

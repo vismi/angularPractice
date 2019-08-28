@@ -19,7 +19,7 @@ export class SearchBarService {
                    'ba_client_applicationName' : 'test'});
   let options =  { headers: headers };
    let url = "http://caws07-e2e01.baplc.com/csdm-plm/rs/v1/productlocations;searchText="+searchString+"?locale=en_GB";
-   url = "http://localhost:3003/csdm-plm/rs/v1/productlocations;searchText="+searchString;
+  // url = "http://localhost:3003/csdm-plm/rs/v1/productlocations;searchText="+searchString;
    return this.http.get(url,options)
    .pipe(map((response: Response)=> {
      return response;
@@ -35,7 +35,7 @@ console.log('payload', payload);
 let options =  { headers: headers };
 
 	let url = "http://caws08-e2e01.baplc.com/badotcomadapter-paa/rs/v1/test;ondwanted=1";
-url = "http://localhost:3003/badotcomadapter-paa/rs/v1/test;ondwanted=1;applicableoffers=vismiat";
+//url = "http://localhost:3003/badotcomadapter-paa/rs/v1/test;ondwanted=1;applicableoffers=vismiat";
 
 
   	return this.http.post(url,JSON.stringify(payload),options)
@@ -47,7 +47,7 @@ url = "http://localhost:3003/badotcomadapter-paa/rs/v1/test;ondwanted=1;applicab
   }
 
   getSearchDataForNextSegment(href:any, payload:any) {
-  	href = "http://localhost:3003/badotcomadapter-paa/rs/v1/test;ondwanted=1;applicableoffers=vismiat";
+  	//href = "http://localhost:3003/badotcomadapter-paa/rs/v1/test;ondwanted=1;applicableoffers=vismiat";
 	let headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8',
 									'Access-Control-Allow-Method':'*',
 									'Access-Control-Allow-Headers':'*',

@@ -1,10 +1,11 @@
+
 import {Component, OnInit} from '@angular/core';
 import {SearchBarService} from '../search-bar/search-bar.service';
 import * as moment from 'moment';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import Swal from 'sweetalert2';
 import {Observable} from 'rxjs/Rx';
-import { debounceTime, distinctUntilChanged, switchMap, catchError  } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap, catchError, filter, map, tap  } from 'rxjs/operators';
 
 
 
@@ -72,9 +73,13 @@ export class SearchBarComponent implements OnInit {
         data => {
           if(data.hasOwnProperty("locations")){
             var updatedTypeAheadVar = data['locations'].map((location)=>{
-              return location.cityDetails.name+', ('+location.airportDetails.iataCode+')';
+              return location.airportDetails.name+', '+
+                location.cityDetails.name+', ('+
+                location.airportDetails.iataCode+'), '+
+                location.countryDetails.name;
             });
             this.typeAheadVar = updatedTypeAheadVar;
+            console.log('this.typeAheadVar',this.typeAheadVar);
           }
         }
       );
@@ -82,6 +87,14 @@ export class SearchBarComponent implements OnInit {
   }
   }
 
+  search = (text$: Observable<string>) =>
+    text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      tap((term)=>this.onSearchChange(term)),
+      map(term => term === '' ? []
+        : this.typeAheadVar.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+    )
 
   addSegment() {
     var lastDestination = this.journeyMatrix[this.journeyMatrix.length - 1].destinationLocationCode;
@@ -110,8 +123,8 @@ export class SearchBarComponent implements OnInit {
 
     this.ondSearchPayload.ondSearches = this.journeyMatrix.map((journeyItem)=>{
       return {'departureDate':journeyItem.departureDate,
-      'destinationLocationCode':journeyItem.destinationLocationCode.split('(')[1].split(')')[0],
-      'originLocationCode':journeyItem.originLocationCode.split('(')[1].split(')')[0]
+      'destinationLocationCode':journeyItem.destinationLocationCode.split(',')[2].slice(2,5),
+      'originLocationCode':journeyItem.originLocationCode.split(',')[2].slice(2,5)
     };
     });
 

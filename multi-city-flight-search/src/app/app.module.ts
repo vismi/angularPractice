@@ -14,6 +14,7 @@ import {
   MatButtonModule
 } from '@angular/material';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormatStringPipe } from './stringFormatPipe';
 
 
@@ -39,6 +40,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     MatExpansionModule,
     MatButtonModule,
     TypeaheadModule.forRoot(),
+    NgbModule,
     MDBBootstrapModule.forRoot(),
     BsDatepickerModule.forRoot()
   ],
