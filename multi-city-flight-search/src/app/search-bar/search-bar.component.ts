@@ -89,9 +89,9 @@ export class SearchBarComponent implements OnInit {
 
   search = (text$: Observable<string>) =>
     text$.pipe(
+      tap((term)=>this.onSearchChange(term)),
       debounceTime(200),
       distinctUntilChanged(),
-      tap((term)=>this.onSearchChange(term)),
       map(term => term === '' ? []
         : this.typeAheadVar.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
     )
