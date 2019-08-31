@@ -19,7 +19,7 @@ export class SearchBarService {
                    'ba_client_applicationName' : 'test'});
   let options =  { headers: headers };
    let url = "http://caws07-e2e01.baplc.com/csdm-plm/rs/v1/productlocations;searchText="+searchString+"?locale=en_GB";
-url = "http://localhost:3003/csdm-plm/rs/v1/productlocations;searchText="+searchString;
+//url = "http://localhost:3003/csdm-plm/rs/v1/productlocations;searchText="+searchString;
    return this.http.get(url,options)
    .pipe(map((response: Response)=> {
      return response;

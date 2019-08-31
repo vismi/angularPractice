@@ -2076,3 +2076,6 @@
 ::ffff:127.0.0.1 - - [31/Aug/2019:06:56:39 +0000] "GET /csdm-plm/rs/v1/productlocations;searchText=lhr HTTP/1.1" - - "http://localhost:4200/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
 ::ffff:127.0.0.1 - - [31/Aug/2019:06:57:00 +0000] "GET /csdm-plm/rs/v1/productlocations;searchText=jfk HTTP/1.1" 304 - "http://localhost:4200/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
 ::ffff:127.0.0.1 - - [31/Aug/2019:06:57:08 +0000] "GET /csdm-plm/rs/v1/productlocations;searchText=che HTTP/1.1" 304 - "http://localhost:4200/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
+::ffff:127.0.0.1 - - [31/Aug/2019:06:59:20 +0000] "GET /csdm-plm/rs/v1/productlocations;searchText=jfk HTTP/1.1" 304 - "http://localhost:4200/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
+::ffff:127.0.0.1 - - [31/Aug/2019:06:59:58 +0000] "GET /csdm-plm/rs/v1/productlocations;searchText=del HTTP/1.1" 304 - "http://localhost:4200/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
+::ffff:127.0.0.1 - - [31/Aug/2019:07:00:14 +0000] "GET /csdm-plm/rs/v1/productlocations;searchText=new HTTP/1.1" - - "http://localhost:4200/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
